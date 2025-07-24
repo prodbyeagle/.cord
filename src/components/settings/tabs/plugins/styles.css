@@ -66,6 +66,16 @@
     gap: 0.25em;
 }
 
+<<<<<<<< HEAD:src/components/settings/tabs/plugins/styles.css
+========
+.vc-warning-card {
+    padding: 1em;
+    background: var(--info-warning-background);
+    border: 1px solid var(--info-warning-foreground);
+    color: var(--info-warning-text);
+}
+
+>>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/PluginSettings/styles.css
 .vc-plugins-restart-button {
     margin-top: 0.5em;
     background: var(--info-warning-foreground) !important;

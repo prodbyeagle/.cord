@@ -22,8 +22,12 @@ import { ImageIcon } from "@components/Icons";
 import { Devs } from "@utils/constants";
 import { openImageModal } from "@utils/discord";
 import definePlugin, { OptionType } from "@utils/types";
-import { GuildMemberStore, IconUtils, Menu } from "@webpack/common";
 import type { Channel, Guild, User } from "@vencord/discord-types";
+import { GuildMemberStore, IconUtils, Menu } from "@webpack/common";
+<<<<<<< HEAD
+=======
+import type { Channel, Guild, User } from "@vencord/discord-types";
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 
 interface UserContextProps {
@@ -71,9 +75,14 @@ const openAvatar = (url: string) => openImage(url, 512, 512);
 const openBanner = (url: string) => openImage(url, 1024);
 
 function openImage(url: string, width: number, height?: number) {
-    const format = url.startsWith("/") ? "png" : settings.store.format;
-
     const u = new URL(url, window.location.href);
+
+    const format = url.startsWith("/")
+        ? "png"
+        : u.searchParams.get("animated") === "true"
+            ? "gif"
+            : settings.store.format;
+
     u.searchParams.set("size", settings.store.imgSize);
     u.pathname = u.pathname.replace(/\.(png|jpe?g|webp)$/, `.${format}`);
     url = u.toString();

@@ -144,3 +144,10 @@ export function useTimer({ interval = 1000, deps = [] }: TimerOpts) {
 
     return time;
 }
+
+export function useCleanupEffect(
+    effect: () => void,
+    deps?: React.DependencyList
+): void {
+    useEffect(() => effect, deps);
+}

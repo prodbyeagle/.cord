@@ -22,7 +22,7 @@ import type { NotificationData } from "@api/Notifications/Notifications";
 import { Settings } from "@api/Settings";
 import { classNameFactory } from "@api/Styles";
 import { Flex } from "@components/Flex";
-import { openNotificationSettingsModal } from "@components/VencordSettings/NotificationSettings";
+import { openNotificationSettingsModal } from "@components/settings/tabs/vencord/NotificationSettings";
 import { closeModal, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalProps, ModalRoot, ModalSize, openModal } from "@utils/modal";
 import { useAwaiter } from "@utils/react";
 import { Alerts, Button, Forms, React, Text, Timestamp, useEffect, useReducer, useState } from "@webpack/common";

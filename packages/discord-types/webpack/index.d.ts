@@ -4,6 +4,11 @@
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 
+<<<<<<<< HEAD:packages/discord-types/webpack/index.d.ts
+========
+import { SYM_ORIGINAL_FACTORY, SYM_PATCHED_BY, SYM_PATCHED_SOURCE } from "@webpack/patcher";
+
+>>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/webpack/wreq.d.ts
 export type ModuleExports = any;
 
 export type Module = {

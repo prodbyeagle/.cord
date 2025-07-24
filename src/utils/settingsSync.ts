@@ -25,6 +25,11 @@ import { chooseFile, saveFile } from "@utils/web";
 import { moment, Toasts } from "@webpack/common";
 import { deflateSync, inflateSync } from "fflate";
 
+import { checkCloudUrlCsp, getCloudAuth, getCloudUrl } from "./cloud";
+import { Logger } from "./Logger";
+import { relaunch } from "./native";
+import { chooseFile, saveFile } from "./web";
+
 export async function importSettings(data: string) {
     try {
         var parsed = JSON.parse(data);

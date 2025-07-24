@@ -16,6 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+<<<<<<<< HEAD:src/components/settings/PluginBadge.tsx
 export function AddonBadge({ text, color }) {
     return (
         <div className="vc-addon-badge" style={{
@@ -27,3 +28,9 @@ export function AddonBadge({ text, color }) {
         </div>
     );
 }
+========
+import PluginSettings from "@components/PluginSettings";
+import { wrapTab } from "@components/VencordSettings/shared";
+
+export default wrapTab(PluginSettings, "Plugins");
+>>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/VencordSettings/PluginsTab.tsx

@@ -543,9 +543,13 @@
                         "object" == typeof r && void 0 !== n
                             ? (n.exports = e())
                             : "function" == typeof define && define.amd
-                            ? define(e)
-                            : (t.ES6Promise = e());
-                }).call(this, Y("VCmEsw"), module.exports);
+                                ? define(e)
+                                : (t.ES6Promise = e());
+                }).call(
+                    this,
+                    Y("VCmEsw"),
+                    module.exports
+                );
             },
             { VCmEsw: 2 },
         ],
@@ -869,7 +873,14 @@
                             "_apng_animation" in e &&
                                 e._apng_animation.removeContext(e);
                         });
+<<<<<<< HEAD
+                }).call(
+                    this,
+                    module.exports
+                );
+=======
                 }).call(this, module.exports);
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
             },
             { "./loader": 6, "./parser": 7, "./support-test": 8 },
         ],
@@ -1135,7 +1146,14 @@
                             );
                         },
                     };
+<<<<<<< HEAD
+                }).call(
+                    this,
+                    module.exports
+                );
+=======
                 }).call(this, module.exports);
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
             },
             { "es6-promise": 1 },
         ],

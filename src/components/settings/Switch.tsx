@@ -16,6 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+// eslint-disable-next-line path-alias/no-relative
 import "./Switch.css";
 
 import { classes } from "@utils/misc";

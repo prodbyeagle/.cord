@@ -16,6 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+<<<<<<<< HEAD:src/components/settings/tabs/BaseTab.tsx
+========
+// eslint-disable-next-line path-alias/no-relative
+import "./settingsStyles.css";
+// eslint-disable-next-line path-alias/no-relative
+import "./themesStyles.css";
+
+>>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/VencordSettings/shared.tsx
 import ErrorBoundary from "@components/ErrorBoundary";
 import { handleComponentFailed } from "@components/handleComponentFailed";
 import { Margins } from "@utils/margins";

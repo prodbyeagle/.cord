@@ -16,7 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+<<<<<<<< HEAD:src/components/settings/SpecialCard.tsx
 import "./SpecialCard.css";
+========
+// eslint-disable-next-line path-alias/no-relative
+import "./specialCard.css";
+>>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/VencordSettings/SpecialCard.tsx
 
 import { classNameFactory } from "@api/Styles";
 import { Card, Clickable, Forms, React } from "@webpack/common";

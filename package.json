@@ -14,24 +14,24 @@
     "license": "GPL-3.0-or-later",
     "author": "Vendicated",
     "scripts": {
-        "build": "node --require=./scripts/suppressExperimentalWarnings.js scripts/build/build.mjs",
-        "buildStandalone": "pnpm build --standalone",
-        "buildWeb": "node --require=./scripts/suppressExperimentalWarnings.js scripts/build/buildWeb.mjs",
-        "buildWebStandalone": "pnpm buildWeb --standalone",
-        "buildReporter": "pnpm buildWebStandalone --reporter --skip-extension",
-        "buildReporterDesktop": "pnpm build --reporter",
-        "watch": "pnpm build --watch",
-        "dev": "pnpm watch",
-        "watchWeb": "pnpm buildWeb --watch",
+        "build": "bun run --require=./scripts/suppressExperimentalWarnings.js scripts/build/build.mjs",
+        "buildStandalone": "bun run build --standalone",
+        "buildWeb": "bun run --require=./scripts/suppressExperimentalWarnings.js scripts/build/buildWeb.mjs",
+        "buildWebStandalone": "bun run buildWeb --standalone",
+        "buildReporter": "bun run buildWebStandalone --reporter --skip-extension",
+        "buildReporterDesktop": "bun run build --reporter",
+        "watch": "bun run build --watch",
+        "dev": "bun run watch",
+        "watchWeb": "bun run buildWeb --watch",
         "generatePluginJson": "tsx scripts/generatePluginList.ts",
         "generateTypes": "tspc --emitDeclarationOnly --declaration --outDir packages/vencord-types --allowJs false",
-        "inject": "node scripts/runInstaller.mjs -- --install",
-        "uninject": "node scripts/runInstaller.mjs -- --uninstall",
+        "inject": "bun run scripts/runInstaller.mjs -- --install",
+        "uninject": "bun run scripts/runInstaller.mjs -- --uninstall",
         "lint": "eslint",
         "lint-styles": "stylelint \"src/**/*.css\" --ignore-pattern src/userplugins",
-        "lint:fix": "pnpm lint --fix",
-        "test": "pnpm buildStandalone && pnpm testTsc && pnpm lint && pnpm lint-styles && pnpm generatePluginJson",
-        "testWeb": "pnpm lint && pnpm buildWeb && pnpm testTsc",
+        "lint:fix": "bun run lint --fix",
+        "test": "bun run buildStandalone && bun run testTsc && bun run lint && bun run lint-styles && bun run generatePluginJson",
+        "testWeb": "bun run lint && bun run buildWeb && bun run testTsc",
         "testTsc": "tsc --noEmit"
     },
     "dependencies": {
@@ -49,7 +49,7 @@
         "@types/chrome": "^0.0.312",
         "@types/diff": "^7.0.2",
         "@types/lodash": "^4.17.14",
-        "@types/node": "^22.13.13",
+        "@types/bun run": "^22.13.13",
         "@types/react": "^19.0.10",
         "@types/react-dom": "^19.0.4",
         "@types/yazl": "^2.4.5",
@@ -79,30 +79,8 @@
         "typescript-transform-paths": "^3.5.5",
         "zip-local": "^0.3.5"
     },
-    "packageManager": "pnpm@10.4.1",
-    "pnpm": {
-        "patchedDependencies": {
-            "eslint@9.20.1": "patches/eslint@9.20.1.patch",
-            "eslint-plugin-path-alias@2.1.0": "patches/eslint-plugin-path-alias@2.1.0.patch"
-        },
-        "peerDependencyRules": {
-            "ignoreMissing": [
-                "eslint-plugin-import",
-                "eslint"
-            ]
-        },
-        "allowedDeprecatedVersions": {
-            "source-map-resolve": "*",
-            "resolve-url": "*",
-            "source-map-url": "*",
-            "urix": "*",
-            "q": "*"
-        },
-        "onlyBuiltDependencies": [
-            "esbuild"
-        ]
-    },
+    "packageManager": ">=bun@1.2.0",
     "engines": {
-        "node": ">=18"
+        "bun run": ">=18"
     }
 }

@@ -16,9 +16,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+<<<<<<<< HEAD:src/components/settings/DonateButton.tsx
 import { Heart } from "@components/Heart";
 import { ButtonProps } from "@vencord/discord-types";
 import { Button } from "@webpack/common";
+========
+import { ButtonProps } from "@vencord/discord-types";
+import { Button } from "@webpack/common";
+
+import { Heart } from "./Heart";
+>>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/DonateButton.tsx
 
 export default function DonateButton({
     look = Button.Looks.LINK,

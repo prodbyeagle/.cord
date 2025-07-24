@@ -17,6 +17,15 @@
 */
 
 import { definePluginSettings } from "@api/Settings";
+<<<<<<< HEAD
+import { Devs, IS_MAC } from "@utils/constants";
+import definePlugin, { OptionType } from "@utils/types";
+import { Message } from "@vencord/discord-types";
+import { ChannelStore, ComponentDispatch, FluxDispatcher as Dispatcher, MessageActions, MessageStore, PermissionsBits, PermissionStore, SelectedChannelStore, UserStore } from "@webpack/common";
+import NoBlockedMessagesPlugin from "plugins/noBlockedMessages";
+import NoReplyMentionPlugin from "plugins/noReplyMention";
+
+=======
 import { Devs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
 import { ChannelStore, ComponentDispatch, FluxDispatcher as Dispatcher, MessageActions, MessageStore, PermissionsBits, PermissionStore, SelectedChannelStore, UserStore } from "@webpack/common";
@@ -25,6 +34,7 @@ import NoBlockedMessagesPlugin from "plugins/noBlockedMessages";
 import NoReplyMentionPlugin from "plugins/noReplyMention";
 
 const isMac = navigator.platform.includes("Mac"); // bruh
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 let currentlyReplyingId: string | null = null;
 let currentlyEditingId: string | null = null;
 
@@ -91,8 +101,8 @@ function onCreatePendingReply({ message, _isQuickReply }: { message: Message; _i
     currentlyReplyingId = message.id;
 }
 
-const isCtrl = (e: KeyboardEvent) => isMac ? e.metaKey : e.ctrlKey;
-const isAltOrMeta = (e: KeyboardEvent) => e.altKey || (!isMac && e.metaKey);
+const isCtrl = (e: KeyboardEvent) => IS_MAC ? e.metaKey : e.ctrlKey;
+const isAltOrMeta = (e: KeyboardEvent) => e.altKey || (!IS_MAC && e.metaKey);
 
 function onKeydown(e: KeyboardEvent) {
     const isUp = e.key === "ArrowUp";

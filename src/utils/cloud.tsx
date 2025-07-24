@@ -19,10 +19,11 @@
 import * as DataStore from "@api/DataStore";
 import { showNotification } from "@api/Notifications";
 import { Settings } from "@api/Settings";
-import { Logger } from "@utils/Logger";
-import { openModal } from "@utils/modal";
-import { relaunch } from "@utils/native";
 import { Alerts, OAuth2AuthorizeModal, UserStore } from "@webpack/common";
+
+import { Logger } from "./Logger";
+import { openModal } from "./modal";
+import { relaunch } from "./native";
 
 export const cloudLogger = new Logger("Cloud", "#39b7e0");
 

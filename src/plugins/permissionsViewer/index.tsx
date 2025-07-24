@@ -25,9 +25,14 @@ import { SafetyIcon } from "@components/Icons";
 import { Devs } from "@utils/constants";
 import { classes } from "@utils/misc";
 import definePlugin, { OptionType } from "@utils/types";
+import type { Guild, GuildMember } from "@vencord/discord-types";
 import { findByPropsLazy } from "@webpack";
+<<<<<<< HEAD
+import { Button, ChannelStore, Dialog, GuildMemberStore, GuildRoleStore, GuildStore, match, Menu, PermissionsBits, Popout, TooltipContainer, useRef, UserStore } from "@webpack/common";
+=======
 import { Button, ChannelStore, Dialog, GuildMemberStore, GuildStore, match, Menu, PermissionsBits, Popout, TooltipContainer, useRef, UserStore } from "@webpack/common";
 import type { Guild, GuildMember } from "@vencord/discord-types";
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 import openRolesAndUsersPermissionsModal, { PermissionType, RoleOrUserPermission } from "./components/RolesAndUsersPermissions";
 import UserPermissions from "./components/UserPermissions";
@@ -71,7 +76,7 @@ function MenuItem(guildId: string, id?: string, type?: MenuItemParentType) {
                 const { permissions, header } = match(type)
                     .returnType<{ permissions: RoleOrUserPermission[], header: string; }>()
                     .with(MenuItemParentType.User, () => {
-                        const member = GuildMemberStore.getMember(guildId, id!);
+                        const member = GuildMemberStore.getMember(guildId, id!)!;
 
                         const permissions: RoleOrUserPermission[] = getSortedRoles(guild, member)
                             .map(role => ({
@@ -107,7 +112,7 @@ function MenuItem(guildId: string, id?: string, type?: MenuItemParentType) {
                         };
                     })
                     .otherwise(() => {
-                        const permissions = Object.values(GuildStore.getRoles(guild.id)).map(role => ({
+                        const permissions = Object.values(GuildRoleStore.getRoles(guild.id)).map(role => ({
                             type: PermissionType.Role,
                             ...role
                         }));

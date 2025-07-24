@@ -23,8 +23,12 @@ import { classNameFactory } from "@api/Styles";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Devs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
-import { DateUtils, RelationshipStore, Text, TooltipContainer } from "@webpack/common";
 import { User } from "@vencord/discord-types";
+import { DateUtils, RelationshipStore, Text, TooltipContainer } from "@webpack/common";
+<<<<<<< HEAD
+=======
+import { User } from "@vencord/discord-types";
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { PropsWithChildren } from "react";
 
 const formatter = new Intl.DateTimeFormat(undefined, {

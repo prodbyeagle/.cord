@@ -4,8 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import { useForceUpdater } from "@utils/react";
 import { useLayoutEffect } from "@webpack/common";
+
+import { useForceUpdater } from "./react";
 
 const cssRelevantDirectives = ["style-src", "style-src-elem", "img-src", "font-src"] as const;
 

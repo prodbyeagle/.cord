@@ -16,6 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+// DO NOT REMOVE UNLESS YOU WISH TO FACE THE WRATH OF THE CIRCULAR DEPENDENCY DEMON!!!!!!!
+import "~plugins";
+
 export * as Api from "./api";
 export * as Components from "./components";
 export * as Plugins from "./plugins";
@@ -29,6 +32,10 @@ export { PlainSettings, Settings };
 import "@utils/quickCss";
 import "@webpack/patcher";
 
+<<<<<<< HEAD
+import { openUpdaterModal } from "@components/settings/tabs/updater";
+import { IS_WINDOWS } from "@utils/constants";
+=======
 import { get as dsGet } from "@api/DataStore";
 import { NotificationData, showNotification } from "@api/Notifications";
 import { PlainSettings, Settings } from "@api/Settings";
@@ -36,10 +43,17 @@ import { openUpdaterModal } from "@components/VencordSettings/UpdaterTab";
 import { localStorage } from "@utils/localStorage";
 import { relaunch } from "@utils/native";
 import { getCloudSettings, putCloudSettings } from "@utils/settingsSync";
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { StartAt } from "@utils/types";
 import { checkForUpdates, update, UpdateLogger } from "@utils/updater";
 import { SettingsRouter } from "@webpack/common";
 
+<<<<<<< HEAD
+import { get as dsGet } from "./api/DataStore";
+import { NotificationData, showNotification } from "./api/Notifications";
+import { PlainSettings, Settings } from "./api/Settings";
+=======
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { patches, PMLogger, startAllPlugins } from "./plugins";
 import { onceReady } from "./webpack";
 
@@ -161,7 +175,7 @@ init();
 document.addEventListener("DOMContentLoaded", () => {
     startAllPlugins(StartAt.DOMContentLoaded);
 
-    if (IS_DISCORD_DESKTOP && Settings.winNativeTitleBar && navigator.platform.toLowerCase().startsWith("win")) {
+    if (IS_DISCORD_DESKTOP && Settings.winNativeTitleBar && IS_WINDOWS) {
         document.head.append(Object.assign(document.createElement("style"), {
             id: "vencord-native-titlebar-style",
             textContent: "[class*=titleBar]{display: none!important}"

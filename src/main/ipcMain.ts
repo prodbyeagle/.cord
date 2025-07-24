@@ -32,6 +32,14 @@ import { FSWatcher, mkdirSync, watch, writeFileSync } from "fs";
 import { open, readdir, readFile } from "fs/promises";
 import { join, normalize } from "path";
 
+<<<<<<< HEAD
+import { registerCspIpcHandlers } from "./csp/manager";
+import { getThemeInfo, stripBOM, UserThemeHeader } from "./themes";
+import { ALLOWED_PROTOCOLS, QUICKCSS_PATH, SETTINGS_DIR, THEMES_DIR } from "./utils/constants";
+import { makeLinksOpenExternally } from "./utils/externalLinks";
+
+=======
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 mkdirSync(THEMES_DIR, { recursive: true });
 
 registerCspIpcHandlers();
@@ -91,7 +99,6 @@ ipcMain.handle(IpcEvents.SET_QUICK_CSS, (_, css) =>
     writeFileSync(QUICKCSS_PATH, css)
 );
 
-ipcMain.handle(IpcEvents.GET_THEMES_DIR, () => THEMES_DIR);
 ipcMain.handle(IpcEvents.GET_THEMES_LIST, () => listThemes());
 ipcMain.handle(IpcEvents.GET_THEME_DATA, (_, fileName) => getThemeData(fileName));
 ipcMain.handle(IpcEvents.GET_THEME_SYSTEM_VALUES, () => ({

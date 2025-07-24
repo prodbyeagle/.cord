@@ -24,9 +24,13 @@ import { NotesIcon, OpenExternalIcon } from "@components/Icons";
 import { Devs } from "@utils/constants";
 import { classes } from "@utils/misc";
 import definePlugin from "@utils/types";
+import { Guild, User } from "@vencord/discord-types";
 import { findByPropsLazy } from "@webpack";
 import { Alerts, Button, Menu, Parser, TooltipContainer } from "@webpack/common";
+<<<<<<< HEAD
+=======
 import { Guild, User } from "@vencord/discord-types";
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 import { Auth, initAuth, updateAuth } from "./auth";
 import { openReviewsModal } from "./components/ReviewModal";

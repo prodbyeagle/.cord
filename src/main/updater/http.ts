@@ -16,7 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+<<<<<<< HEAD
+=======
 import { serializeErrors, VENCORD_FILES } from "@main/updater/common";
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { fetchBuffer, fetchJson } from "@main/utils/http";
 import { IpcEvents } from "@shared/IpcEvents";
 import { VENCORD_USER_AGENT } from "@shared/vencordUserAgent";

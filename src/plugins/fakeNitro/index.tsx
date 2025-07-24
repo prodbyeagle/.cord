@@ -23,10 +23,14 @@ import { ApngBlendOp, ApngDisposeOp, importApngJs } from "@utils/dependencies";
 import { getCurrentGuild, getEmojiURL } from "@utils/discord";
 import { Logger } from "@utils/Logger";
 import definePlugin, { OptionType, Patch } from "@utils/types";
+import type { Emoji, Message } from "@vencord/discord-types";
 import { findByCodeLazy, findByPropsLazy, findStoreLazy, proxyLazyWebpack } from "@webpack";
 import { Alerts, ChannelStore, DraftType, EmojiStore, FluxDispatcher, Forms, GuildMemberStore, lodash, Parser, PermissionsBits, PermissionStore, UploadHandler, UserSettingsActionCreators, UserStore } from "@webpack/common";
+<<<<<<< HEAD
+=======
 
 import type { Emoji, Message } from "@vencord/discord-types";
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { applyPalette, GIFEncoder, quantize } from "gifenc";
 import type { ReactElement, ReactNode } from "react";
 
@@ -127,7 +131,7 @@ const settings = definePluginSettings({
         description: "Size of the emojis when sending",
         type: OptionType.SLIDER,
         default: 48,
-        markers: [32, 48, 64, 128, 160, 256, 512]
+        markers: [32, 48, 64, 96, 128, 160, 256, 512]
     },
     transformEmojis: {
         description: "Whether to transform fake emojis into real ones",
@@ -813,7 +817,6 @@ export default definePlugin({
 
         let isUsableTwitchSubEmote = false;
         if (e.managed && e.guildId) {
-            // @ts-ignore outdated type
             const myRoles = GuildMemberStore.getSelfMember(e.guildId)?.roles ?? [];
             isUsableTwitchSubEmote = e.roles.some(r => myRoles.includes(r));
         }

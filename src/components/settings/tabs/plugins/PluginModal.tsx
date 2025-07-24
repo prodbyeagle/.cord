@@ -27,12 +27,21 @@ import { debounce } from "@shared/debounce";
 import { gitRemote } from "@shared/vencordUserAgent";
 import { proxyLazy } from "@utils/lazy";
 import { Margins } from "@utils/margins";
+<<<<<<<< HEAD:src/components/settings/tabs/plugins/PluginModal.tsx
 import { classes, isObjectEmpty } from "@utils/misc";
 import { ModalCloseButton, ModalContent, ModalHeader, ModalProps, ModalRoot, ModalSize, openModal } from "@utils/modal";
 import { OptionType, Plugin } from "@utils/types";
 import { User } from "@vencord/discord-types";
 import { findByPropsLazy } from "@webpack";
 import { Clickable, FluxDispatcher, Forms, React, Text, Tooltip, useEffect, UserStore, UserSummaryItem, UserUtils, useState } from "@webpack/common";
+========
+import { isObjectEmpty } from "@utils/misc";
+import { ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalProps, ModalRoot, ModalSize, openModal } from "@utils/modal";
+import { OptionType, Plugin } from "@utils/types";
+import { User } from "@vencord/discord-types";
+import { findByPropsLazy, findComponentByCodeLazy } from "@webpack";
+import { Button, Clickable, FluxDispatcher, Forms, React, Text, Tooltip, UserStore, UserUtils } from "@webpack/common";
+>>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/PluginSettings/PluginModal.tsx
 import { Constructor } from "type-fest";
 
 import { PluginMeta } from "~plugins";
@@ -147,8 +156,19 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
 
     return (
         <ModalRoot transitionState={transitionState} size={ModalSize.MEDIUM}>
+<<<<<<<< HEAD:src/components/settings/tabs/plugins/PluginModal.tsx
             <ModalHeader separator={false} className={Margins.bottom8}>
                 <Text variant="heading-xl/bold" style={{ flexGrow: 1 }}>{plugin.name}</Text>
+========
+            <ModalHeader separator={false}>
+                <Text variant="heading-lg/semibold" style={{ flexGrow: 1 }}>{plugin.name}</Text>
+
+                {/*
+                <Button look={Button.Looks.BLANK} onClick={switchToPopout}>
+                    <OpenExternalIcon aria-label="Open in Popout" />
+                </Button>
+                */}
+>>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/PluginSettings/PluginModal.tsx
                 <ModalCloseButton onClick={onClose} />
             </ModalHeader>
 
@@ -196,10 +216,17 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                 </Forms.FormSection>
 
                 {!!plugin.settingsAboutComponent && (
+<<<<<<<< HEAD:src/components/settings/tabs/plugins/PluginModal.tsx
                     <div className={Margins.top16}>
                         <Forms.FormSection>
                             <ErrorBoundary message="An error occurred while rendering this plugin's custom Info Component">
                                 <plugin.settingsAboutComponent />
+========
+                    <div className={Margins.bottom8}>
+                        <Forms.FormSection>
+                            <ErrorBoundary message="An error occurred while rendering this plugin's custom Info Component">
+                                <plugin.settingsAboutComponent tempSettings={tempSettings} />
+>>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/PluginSettings/PluginModal.tsx
                             </ErrorBoundary>
                         </Forms.FormSection>
                     </div>

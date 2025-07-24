@@ -20,7 +20,7 @@ import { definePluginSettings } from "@api/Settings";
 import { Devs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
 import { findStoreLazy } from "@webpack";
-import { Constants, FluxDispatcher, GuildStore, RelationshipStore, RestAPI, SnowflakeUtils, UserStore } from "@webpack/common";
+import { Constants, FluxDispatcher, GuildStore, RelationshipStore, SnowflakeUtils, UserStore } from "@webpack/common";
 import { Settings } from "Vencord";
 
 const UserAffinitiesStore = findStoreLazy("UserAffinitiesV2Store");
@@ -121,29 +121,23 @@ export default definePlugin({
             : comparator(row);
     },
 
-    async refreshUserAffinities() {
-        try {
-            await RestAPI.get({ url: "/users/@me/affinities/users", retries: 3 }).then(({ body }) => {
-                FluxDispatcher.dispatch({
-                    type: "LOAD_USER_AFFINITIES_SUCCESS",
-                    affinities: body,
-                });
-            });
-        } catch (e) {
-            // Not a critical error if this fails for some reason
-        }
-    },
-
     async fetchImplicitRelationships() {
         // Implicit relationships are defined as users that you:
         // 1. Have an affinity for
         // 2. Do not have a relationship with
+<<<<<<< HEAD
+=======
         await this.refreshUserAffinities();
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         const userAffinities: Record<string, any>[] = UserAffinitiesStore.getUserAffinities();
         const relationships = RelationshipStore.getMutableRelationships();
         const nonFriendAffinities = userAffinities.filter(a => !RelationshipStore.getRelationshipType(a.otherUserId));
         nonFriendAffinities.forEach(a => {
+<<<<<<< HEAD
+            relationships.set(a.otherUserId, 5);
+=======
             relationships[a.otherUserId] = 5;
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         });
         RelationshipStore.emitChange();
 

@@ -16,7 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+<<<<<<<< HEAD:src/components/settings/AddonCard.tsx
 import "./AddonCard.css";
+========
+// eslint-disable-next-line path-alias/no-relative
+import "./addonCard.css";
+>>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/VencordSettings/AddonCard.tsx
 
 import { classNameFactory } from "@api/Styles";
 import { AddonBadge } from "@components/settings/PluginBadge";

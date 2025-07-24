@@ -67,12 +67,16 @@ const nodeCommonOpts = {
     platform: "node",
     target: ["esnext"],
     // @ts-expect-error this is never undefined
+<<<<<<< HEAD
+    external: ["electron", "original-fs", "~pluginNatives", ...commonOpts.external]
+=======
     external: [
         "electron",
         "original-fs",
         "~pluginNatives",
         ...(commonOpts.external ?? []),
     ],
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 };
 
 const sourceMapFooter = (s) =>
@@ -141,11 +145,15 @@ const buildConfigs = [
         ...nodeCommonOpts,
         entryPoints: ["src/main/index.ts"],
         outfile: "dist/patcher.js",
+<<<<<<< HEAD
+        footer: { js: "//# sourceURL=file:///VencordPatcher\n" + sourceMapFooter("patcher") },
+=======
         footer: {
             js:
                 "//# sourceURL=file:///VencordPatcher\n" +
                 sourceMapFooter("patcher"),
         },
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         sourcemap,
         plugins: [
             // @ts-ignore this is never undefined
@@ -164,11 +172,15 @@ const buildConfigs = [
         outfile: "dist/renderer.js",
         format: "iife",
         target: ["esnext"],
+<<<<<<< HEAD
+        footer: { js: "//# sourceURL=file:///VencordRenderer\n" + sourceMapFooter("renderer") },
+=======
         footer: {
             js:
                 "//# sourceURL=file:///VencordRenderer\n" +
                 sourceMapFooter("renderer"),
         },
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         globalName: "Vencord",
         sourcemap,
         plugins: [globPlugins("discordDesktop"), ...commonRendererPlugins],
@@ -182,11 +194,15 @@ const buildConfigs = [
         ...nodeCommonOpts,
         entryPoints: ["src/preload.ts"],
         outfile: "dist/preload.js",
+<<<<<<< HEAD
+        footer: { js: "//# sourceURL=file:///VencordPreload\n" + sourceMapFooter("preload") },
+=======
         footer: {
             js:
                 "//# sourceURL=file:///VencordPreload\n" +
                 sourceMapFooter("preload"),
         },
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         sourcemap,
         define: {
             ...defines,
@@ -200,11 +216,15 @@ const buildConfigs = [
         ...nodeCommonOpts,
         entryPoints: ["src/main/index.ts"],
         outfile: "dist/vencordDesktopMain.js",
+<<<<<<< HEAD
+        footer: { js: "//# sourceURL=file:///VencordDesktopMain\n" + sourceMapFooter("vencordDesktopMain") },
+=======
         footer: {
             js:
                 "//# sourceURL=file:///VencordDesktopMain\n" +
                 sourceMapFooter("vencordDesktopMain"),
         },
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         sourcemap,
         plugins: [...nodeCommonOpts.plugins, globNativesPlugin],
         define: {
@@ -219,11 +239,15 @@ const buildConfigs = [
         outfile: "dist/vencordDesktopRenderer.js",
         format: "iife",
         target: ["esnext"],
+<<<<<<< HEAD
+        footer: { js: "//# sourceURL=file:///VencordDesktopRenderer\n" + sourceMapFooter("vencordDesktopRenderer") },
+=======
         footer: {
             js:
                 "//# sourceURL=file:///VencordDesktopRenderer\n" +
                 sourceMapFooter("vencordDesktopRenderer"),
         },
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         globalName: "Vencord",
         sourcemap,
         plugins: [globPlugins("vesktop"), ...commonRendererPlugins],
@@ -237,11 +261,15 @@ const buildConfigs = [
         ...nodeCommonOpts,
         entryPoints: ["src/preload.ts"],
         outfile: "dist/vencordDesktopPreload.js",
+<<<<<<< HEAD
+        footer: { js: "//# sourceURL=file:///VencordPreload\n" + sourceMapFooter("vencordDesktopPreload") },
+=======
         footer: {
             js:
                 "//# sourceURL=file:///VencordPreload\n" +
                 sourceMapFooter("vencordDesktopPreload"),
         },
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         sourcemap,
         define: {
             ...defines,

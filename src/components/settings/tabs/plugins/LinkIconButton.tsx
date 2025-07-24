@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+// eslint-disable-next-line path-alias/no-relative
 import "./LinkIconButton.css";
 
 import { GithubIcon, WebsiteIcon } from "@components/Icons";

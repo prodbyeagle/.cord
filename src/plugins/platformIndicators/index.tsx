@@ -25,9 +25,13 @@ import { Settings } from "@api/Settings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Devs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
+import { User } from "@vencord/discord-types";
 import { filters, findStoreLazy, mapMangledModuleLazy } from "@webpack";
 import { PresenceStore, Tooltip, UserStore } from "@webpack/common";
+<<<<<<< HEAD
+=======
 import { User } from "@vencord/discord-types";
+>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 export interface Session {
     sessionId: string;
