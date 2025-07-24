@@ -4,12 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-<<<<<<<< HEAD:src/components/settings/QuickAction.tsx
 import "./QuickAction.css";
-========
-// eslint-disable-next-line path-alias/no-relative
-import "./quickActions.css";
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/VencordSettings/quickActions.tsx
 
 import { classNameFactory } from "@api/Styles";
 import { Card } from "@webpack/common";

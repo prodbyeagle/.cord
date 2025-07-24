@@ -27,10 +27,6 @@ import definePlugin, { OptionType } from "@utils/types";
 import { Guild } from "@vencord/discord-types";
 import { findByCodeLazy, findByPropsLazy, mapMangledModuleLazy } from "@webpack";
 import { Menu } from "@webpack/common";
-<<<<<<< HEAD
-=======
-import { Guild } from "@vencord/discord-types";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 const { updateGuildNotificationSettings } = findByPropsLazy("updateGuildNotificationSettings");
 const { toggleShowAllChannels } = mapMangledModuleLazy(".onboardExistingMember(", {

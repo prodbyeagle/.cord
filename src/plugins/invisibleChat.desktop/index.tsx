@@ -25,10 +25,6 @@ import { getStegCloak } from "@utils/dependencies";
 import definePlugin, { OptionType, ReporterTestable } from "@utils/types";
 import { Message } from "@vencord/discord-types";
 import { ChannelStore, Constants, RestAPI, Tooltip } from "@webpack/common";
-<<<<<<< HEAD
-=======
-import { Message } from "@vencord/discord-types";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 import { buildDecModal } from "./components/DecryptionModal";
 import { buildEncModal } from "./components/EncryptionModal";

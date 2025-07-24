@@ -16,7 +16,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-<<<<<<< HEAD
 import { app, net, protocol } from "electron";
 import { join } from "path";
 import { pathToFileURL } from "url";
@@ -26,16 +25,6 @@ import { ensureSafePath } from "./ipcMain";
 import { RendererSettings } from "./settings";
 import { IS_VANILLA, THEMES_DIR } from "./utils/constants";
 import { installExt } from "./utils/extensions";
-=======
-import { initCsp } from "@main/csp";
-import { ensureSafePath } from "@main/ipcMain";
-import { RendererSettings } from "@main/settings";
-import { IS_VANILLA, THEMES_DIR } from "@main/utils/constants";
-import { installExt } from "@main/utils/extensions";
-import { app, net, protocol } from "electron";
-import { join } from "path";
-import { pathToFileURL } from "url";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 if (IS_VESKTOP || !IS_VANILLA) {
     app.whenReady().then(() => {

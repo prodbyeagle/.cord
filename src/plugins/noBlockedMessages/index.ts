@@ -21,13 +21,8 @@ import { Devs } from "@utils/constants";
 import { runtimeHashMessageKey } from "@utils/intlHash";
 import { Logger } from "@utils/Logger";
 import definePlugin, { OptionType } from "@utils/types";
-<<<<<<< HEAD
 import { Message } from "@vencord/discord-types";
 import { i18n, RelationshipStore } from "@webpack/common";
-=======
-import { i18n, RelationshipStore } from "@webpack/common";
-import { Message } from "@vencord/discord-types";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 interface MessageDeleteProps {
     // Internal intl message for BLOCKED_MESSAGE_COUNT

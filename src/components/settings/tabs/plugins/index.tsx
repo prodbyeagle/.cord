@@ -39,27 +39,10 @@ export const cl = classNameFactory("vc-plugins-");
 export const logger = new Logger("PluginSettings", "#a6d189");
 
 const InputStyles = findByPropsLazy("inputWrapper", "inputError", "error");
-<<<<<<<< HEAD:src/components/settings/tabs/plugins/index.tsx
-========
-const ButtonClasses = findByPropsLazy("button", "disabled", "enabled");
-
-
-function showErrorToast(message: string) {
-    Toasts.show({
-        message,
-        type: Toasts.Type.FAILURE,
-        id: Toasts.genId(),
-        options: {
-            position: Toasts.Position.BOTTOM
-        }
-    });
-}
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/PluginSettings/index.tsx
 
 function ReloadRequiredCard({ required }: { required: boolean; }) {
     return (
         <Card className={classes(cl("info-card"), required && "vc-warning-card")}>
-<<<<<<<< HEAD:src/components/settings/tabs/plugins/index.tsx
             {required
                 ? (
                     <>
@@ -79,25 +62,6 @@ function ReloadRequiredCard({ required }: { required: boolean; }) {
                         <Forms.FormText>Plugins with a cog wheel have settings you can modify!</Forms.FormText>
                     </>
                 )}
-========
-            {required ? (
-                <>
-                    <Forms.FormTitle tag="h5">Restart required!</Forms.FormTitle>
-                    <Forms.FormText className={cl("dep-text")}>
-                        Restart now to apply new plugins and their settings
-                    </Forms.FormText>
-                    <Button onClick={() => location.reload()} className={cl("restart-button")}>
-                        Restart
-                    </Button>
-                </>
-            ) : (
-                <>
-                    <Forms.FormTitle tag="h5">Plugin Management</Forms.FormTitle>
-                    <Forms.FormText>Press the cog wheel or info icon to get more info on a plugin</Forms.FormText>
-                    <Forms.FormText>Plugins with a cog wheel have settings you can modify!</Forms.FormText>
-                </>
-            )}
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/PluginSettings/index.tsx
         </Card>
     );
 }

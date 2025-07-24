@@ -1,6 +1,3 @@
-<<<<<<<< HEAD:packages/discord-types/src/utils.d.ts
-import { Channel, Guild, GuildMember, Message, User } from ".";
-========
 /*
  * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
@@ -19,9 +16,7 @@ import { Channel, Guild, GuildMember, Message, User } from ".";
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import type { FluxEvents } from "@webpack/types\fluxEvents";
-import { Channel, Guild, GuildMember, Message, User } from "@vencord/discord-types";
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/webpack/common/types/utils.d.ts
+import { Channel, Guild, GuildMember, Message, User, FluxEvents } from "@vencord/discord-types";
 import type { ReactNode } from "react";
 import { LiteralUnion } from "type-fest";
 

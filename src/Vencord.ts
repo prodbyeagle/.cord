@@ -29,33 +29,23 @@ export * as Webpack from "./webpack";
 export * as WebpackPatcher from "./webpack/patchWebpack";
 export { PlainSettings, Settings };
 
-import "@utils/quickCss";
-import "@webpack/patcher";
+import "./utils/quickCss";
+import "./webpack/patchWebpack";
 
-<<<<<<< HEAD
 import { openUpdaterModal } from "@components/settings/tabs/updater";
 import { IS_WINDOWS } from "@utils/constants";
-=======
-import { get as dsGet } from "@api/DataStore";
-import { NotificationData, showNotification } from "@api/Notifications";
-import { PlainSettings, Settings } from "@api/Settings";
-import { openUpdaterModal } from "@components/VencordSettings/UpdaterTab";
-import { localStorage } from "@utils/localStorage";
-import { relaunch } from "@utils/native";
-import { getCloudSettings, putCloudSettings } from "@utils/settingsSync";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { StartAt } from "@utils/types";
-import { checkForUpdates, update, UpdateLogger } from "@utils/updater";
-import { SettingsRouter } from "@webpack/common";
 
-<<<<<<< HEAD
 import { get as dsGet } from "./api/DataStore";
 import { NotificationData, showNotification } from "./api/Notifications";
 import { PlainSettings, Settings } from "./api/Settings";
-=======
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { patches, PMLogger, startAllPlugins } from "./plugins";
+import { localStorage } from "./utils/localStorage";
+import { relaunch } from "./utils/native";
+import { getCloudSettings, putCloudSettings } from "./utils/settingsSync";
+import { checkForUpdates, update, UpdateLogger } from "./utils/updater";
 import { onceReady } from "./webpack";
+import { SettingsRouter } from "./webpack/common";
 
 if (IS_REPORTER) {
     require("./debug/runReporter");

@@ -22,10 +22,6 @@ import { classes } from "@utils/misc";
 import type { Guild, GuildMember } from "@vencord/discord-types";
 import { filters, findBulk, proxyLazyWebpack } from "@webpack";
 import { PermissionsBits, Text, Tooltip, useMemo, UserStore } from "@webpack/common";
-<<<<<<< HEAD
-=======
-import type { Guild, GuildMember } from "@vencord/discord-types";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 import { PermissionsSortOrder, settings } from "..";
 import { cl, getGuildPermissionSpecMap, getSortedRoles, sortUserRoles } from "../utils";

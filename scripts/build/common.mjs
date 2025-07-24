@@ -211,14 +211,10 @@ export const globPlugins = (kind) => ({
                         ""
                     )}";\n`;
                     pluginsCode += `[${mod}.name]:${mod},\n`;
-<<<<<<< HEAD
-                    metaCode += `[${mod}.name]:${JSON.stringify({ folderName, userPlugin })},\n`;
-=======
                     metaCode += `[${mod}.name]:${JSON.stringify({
                         folderName,
                         userPlugin,
-                    })},\n`; // TODO: add excluded plugins to display in the UI?
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
+                    })},\n`;
                     i++;
                 }
             }
@@ -424,14 +420,6 @@ const escapedBuiltinModules = builtinModules
 const builtinModuleRegex = new RegExp(`^(node:)?(${escapedBuiltinModules})$`);
 
 export const commonRendererPlugins = [
-<<<<<<< HEAD
-    banImportPlugin(builtinModuleRegex, "Cannot import node inbuilt modules in browser code. You need to use a native.ts file"),
-    banImportPlugin(/^react$/, "Cannot import from react. React and hooks should be imported from @webpack/common"),
-    banImportPlugin(/^electron(\/.*)?$/, "Cannot import electron in browser code. You need to use a native.ts file"),
-    banImportPlugin(/^ts-pattern$/, "Cannot import from ts-pattern. match and P should be imported from @webpack/common"),
-    // @ts-expect-error this is never undefined
-    ...commonOpts.plugins
-=======
     banImportPlugin(
         builtinModuleRegex,
         "Cannot import node inbuilt modules in browser code. You need to use a native.ts file"
@@ -450,5 +438,4 @@ export const commonRendererPlugins = [
     ),
     // @ts-expect-error this is never undefined
     ...commonOpts.plugins,
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 ];

@@ -10,7 +10,6 @@ import {
     addMessageDecoration,
     removeMessageDecoration,
 } from "@api/MessageDecorations";
-import { VENCORD_ICON_IMAGE } from "@components/VencordSettings/VencordTab";
 import { Devs } from "@utils/constants";
 import { isPluginDev } from "@utils/misc";
 import definePlugin from "@utils/types";
@@ -19,6 +18,7 @@ import { User } from "@vencord/discord-types";
 import badges from "plugins/_api/badges";
 
 import settings, { cl } from "./settings";
+import { EAGLECORD_ICON_IMAGE } from "@components/settings/tabs/vencord";
 
 const roleIconClassName = findByPropsLazy("roleIcon", "separator").roleIcon;
 const RoleIconComponent = findComponentByCodeLazy(
@@ -94,7 +94,7 @@ function ChatBadges({ author }: { author: User; }) {
                             className={roleIconClassName}
                             name="Vencord / EagleCord Contributor"
                             size={18}
-                            src={VENCORD_ICON_IMAGE}
+                            src={EAGLECORD_ICON_IMAGE}
                         />
                     </span>
                 )}

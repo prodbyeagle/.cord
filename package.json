@@ -49,11 +49,11 @@
         "@types/chrome": "^0.0.312",
         "@types/diff": "^7.0.2",
         "@types/lodash": "^4.17.14",
-        "@types/bun run": "^22.13.13",
+        "@types/node": "^22.13.13",
         "@types/react": "^19.0.10",
         "@types/react-dom": "^19.0.4",
         "@types/yazl": "^2.4.5",
-        "@vencord/discord-types": "link:packages/discord-types",
+        "@vencord/discord-types": "link:@vencord/discord-types",
         "diff": "^7.0.0",
         "esbuild": "^0.25.1",
         "eslint": "9.20.1",
@@ -81,6 +81,6 @@
     },
     "packageManager": ">=bun@1.2.0",
     "engines": {
-        "bun run": ">=18"
+        "node": ">=18"
     }
 }

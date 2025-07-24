@@ -125,19 +125,11 @@ export default definePlugin({
         // Implicit relationships are defined as users that you:
         // 1. Have an affinity for
         // 2. Do not have a relationship with
-<<<<<<< HEAD
-=======
-        await this.refreshUserAffinities();
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         const userAffinities: Record<string, any>[] = UserAffinitiesStore.getUserAffinities();
         const relationships = RelationshipStore.getMutableRelationships();
         const nonFriendAffinities = userAffinities.filter(a => !RelationshipStore.getRelationshipType(a.otherUserId));
         nonFriendAffinities.forEach(a => {
-<<<<<<< HEAD
             relationships.set(a.otherUserId, 5);
-=======
-            relationships[a.otherUserId] = 5;
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         });
         RelationshipStore.emitChange();
 

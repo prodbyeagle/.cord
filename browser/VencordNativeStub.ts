@@ -112,10 +112,6 @@ window.VencordNative = {
             }
         },
         set: async (s: Settings) => localStorage.setItem("VencordSettings", JSON.stringify(s)),
-<<<<<<< HEAD
-=======
-        getSettingsDir: async () => "LocalStorage",
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
         openFolder: async () => Promise.reject("settings:openFolder is not supported on web"),
     },
 

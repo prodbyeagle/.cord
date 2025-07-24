@@ -23,10 +23,6 @@ import definePlugin, { StartAt } from "@utils/types";
 import { MessageAttachment } from "@vencord/discord-types";
 import { findByPropsLazy } from "@webpack";
 import { DraftStore, DraftType, SelectedChannelStore, UserStore, useStateFromStores } from "@webpack/common";
-<<<<<<< HEAD
-=======
-import { MessageAttachment } from "@vencord/discord-types";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 const UploadStore = findByPropsLazy("getUploads");
 

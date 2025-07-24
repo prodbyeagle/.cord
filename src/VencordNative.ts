@@ -51,10 +51,6 @@ export default {
     settings: {
         get: () => sendSync<Settings>(IpcEvents.GET_SETTINGS),
         set: (settings: Settings, pathToNotify?: string) => invoke<void>(IpcEvents.SET_SETTINGS, settings, pathToNotify),
-<<<<<<< HEAD
-=======
-        getSettingsDir: () => invoke<string>(IpcEvents.GET_SETTINGS_DIR),
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
         openFolder: () => invoke<void>(IpcEvents.OPEN_SETTINGS_FOLDER),
     },

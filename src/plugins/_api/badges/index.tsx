@@ -19,21 +19,12 @@
 import "./fixDiscordBadgePadding.css";
 
 import { _getBadges, addProfileBadge, BadgePosition, BadgeUserArgs, ProfileBadge } from "@api/Badges";
-<<<<<<< HEAD
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Flex } from "@components/Flex";
 import { Heart } from "@components/Heart";
 import DonateButton from "@components/settings/DonateButton";
 import { openContributorModal, openStaffModal } from "@components/settings/tabs";
 import { EAGLECORD_ICON_IMAGE } from "@components/settings/tabs/vencord";
-=======
-import DonateButton from "@components/DonateButton";
-import ErrorBoundary from "@components/ErrorBoundary";
-import { Flex } from "@components/Flex";
-import { Heart } from "@components/Heart";
-import { openContributorModal, openStaffModal } from "@components/PluginSettings/ContributorModal";
-import { EAGLECORD_ICON_IMAGE } from "@components/VencordSettings/VencordTab";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { Devs } from "@utils/constants";
 import { Logger } from "@utils/Logger";
 import { Margins } from "@utils/margins";
@@ -42,19 +33,9 @@ import { closeModal, ModalContent, ModalFooter, ModalHeader, ModalRoot, openModa
 import definePlugin from "@utils/types";
 import { User } from "@vencord/discord-types";
 import { Forms, Toasts, UserStore } from "@webpack/common";
-<<<<<<< HEAD
 
 // const CONTRIBUTOR_BADGE = "https://cdn.discordapp.com/emojis/1092089799109775453.png?size=64";
 const OWNER_BADGE = "https://cdn.discordapp.com/badge-icons/5e74e9b61934fc1f67c65515d1f7e60d.png";
-=======
-import { User } from "@vencord/discord-types";
-
-const OWNER_BADGE = "https://cdn.discordapp.com/badge-icons/5e74e9b61934fc1f67c65515d1f7e60d.png";
-
-function openEaglePage() {
-    VencordNative.native.openExternal("https://prodbyeagle.vercel.app/");
-}
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 const ContributorBadge: ProfileBadge = {
     description: "Vencord / EagleCord Contributor",
@@ -63,30 +44,6 @@ const ContributorBadge: ProfileBadge = {
     shouldShow: ({ userId }) => shouldShowContributorBadge(userId),
     onClick: (_, { userId }) => openContributorModal(UserStore.getUser(userId)),
     props: { style: { scale: 0.85 } }
-<<<<<<< HEAD
-=======
-};
-
-const FormerStaff: ProfileBadge = {
-    description: "Former Staff",
-    image: OWNER_BADGE,
-    position: BadgePosition.END,
-    onClick: () => openStaffModal(FormerStaff),
-    shouldShow: ({ userId }) => ["1093444260491165777", "773166395147157504"].includes(userId),
-    props: {
-        style: {
-            filter: "grayscale(100%)"
-        }
-    },
-};
-
-const OwnerBadge: ProfileBadge = {
-    description: "Owner",
-    image: OWNER_BADGE,
-    position: BadgePosition.END,
-    shouldShow: ({ userId }) => ["893759402832699392"].includes(userId),
-    onClick: () => openEaglePage(),
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 };
 
 const FormerStaff: ProfileBadge = {
@@ -118,12 +75,6 @@ let DonorBadges = {} as Record<string, Array<Record<"tooltip" | "badge", string>
 let EagleBadges = {} as Record<string, Array<Record<"tooltip" | "badge", string>>>;
 
 async function loadBadges(noCache = false) {
-<<<<<<< HEAD
-=======
-    DonorBadges = {};
-    EagleBadges = {};
-
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
     const init = {} as RequestInit;
     if (noCache)
         init.cache = "no-cache";
@@ -201,10 +152,6 @@ export default definePlugin({
 
         clearInterval(intervalId);
         intervalId = setInterval(loadBadges, 1000 * 60 * 30); // 30 minutes
-    },
-
-    async stop() {
-        clearInterval(intervalId);
     },
 
     async stop() {

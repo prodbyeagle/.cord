@@ -6,7 +6,7 @@
 
 import { definePluginSettings } from "@api/Settings";
 import { classNameFactory } from "@api/Styles";
-import { VENCORD_ICON_IMAGE } from "@components/VencordSettings/VencordTab";
+import { EAGLECORD_ICON_IMAGE } from "@components/settings/tabs/vencord";
 import { OptionType } from "@utils/types";
 import { Text, UserStore } from "@webpack/common";
 
@@ -56,7 +56,7 @@ function BadgeSettings() {
             title: "Vencord donor badges",
         },
         {
-            src: VENCORD_ICON_IMAGE,
+            src: EAGLECORD_ICON_IMAGE,
             settings: settings.store.vencordContributor,
             title: "Vencord contributor badge",
         },

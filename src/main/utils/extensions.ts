@@ -16,22 +16,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { DATA_DIR } from "@main/utils/constants";
-import { crxToZip } from "@main/utils/crxToZip";
-import { fetchBuffer } from "@main/utils/http";
 import { session } from "electron";
 import { unzip } from "fflate";
 import { constants as fsConstants } from "fs";
 import { access, mkdir, rm, writeFile } from "fs/promises";
 import { join } from "path";
 
-<<<<<<< HEAD
 import { DATA_DIR } from "./constants";
 import { crxToZip } from "./crxToZip";
 import { fetchBuffer } from "./http";
 
-=======
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 const extensionCacheDir = join(DATA_DIR, "ExtensionCache");
 
 async function extract(data: Buffer, outDir: string) {

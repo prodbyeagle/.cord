@@ -17,21 +17,13 @@
 */
 
 import { Flex } from "@components/Flex";
-<<<<<<<< HEAD:src/components/settings/tabs/sync/BackupAndRestoreTab.tsx
 import { SettingsTab, wrapTab } from "@components/settings/tabs/BaseTab";
-========
-import { SettingsTab, wrapTab } from "@components/VencordSettings/shared";
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/VencordSettings/BackupAndRestoreTab.tsx
 import { Margins } from "@utils/margins";
 import { classes } from "@utils/misc";
 import { downloadSettingsBackup, uploadSettingsBackup } from "@utils/settingsSync";
 import { Button, Card, Text } from "@webpack/common";
 
-<<<<<<<< HEAD:src/components/settings/tabs/sync/BackupAndRestoreTab.tsx
 function BackupAndRestoreTab() {
-========
-function BackupRestoreTab() {
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/VencordSettings/BackupAndRestoreTab.tsx
     return (
         <SettingsTab title="Backup & Restore">
             <Card className={classes("vc-settings-card", "vc-backup-restore-card")}>

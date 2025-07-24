@@ -21,11 +21,7 @@ import { Settings, useSettings } from "@api/Settings";
 import { CheckedTextInput } from "@components/CheckedTextInput";
 import { Grid } from "@components/Grid";
 import { Link } from "@components/Link";
-<<<<<<<< HEAD:src/components/settings/tabs/sync/CloudTab.tsx
 import { SettingsTab, wrapTab } from "@components/settings/tabs/BaseTab";
-========
-import { SettingsTab, wrapTab } from "@components/VencordSettings/shared";
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/VencordSettings/CloudTab.tsx
 import { authorizeCloud, checkCloudUrlCsp, cloudLogger, deauthorizeCloud, getCloudAuth, getCloudUrl } from "@utils/cloud";
 import { Margins } from "@utils/margins";
 import { deleteCloudSettings, getCloudSettings, putCloudSettings } from "@utils/settingsSync";

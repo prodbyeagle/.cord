@@ -4,123 +4,26 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-<<<<<<< HEAD
-<<<<<<<< HEAD:src/components/settings/tabs/plugins/ContributorModal.tsx
-import "./ContributorModal.css";
-========
-// eslint-disable-next-line path-alias/no-relative
-import "./contributorModal.css";
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/PluginSettings/ContributorModal.tsx
-
-import { ProfileBadge } from "@api/Badges";
-=======
 import "./ContributorModal.css";
 
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { useSettings } from "@api/Settings";
 import { classNameFactory } from "@api/Styles";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Link } from "@components/Link";
-<<<<<<< HEAD
-import { GithubButton, WebsiteButton } from "@components/PluginSettings/LinkIconButton";
-import { DevsById } from "@utils/constants";
-import { fetchUserProfile } from "@utils/discord";
-import { Margins } from "@utils/margins";
-import { classes, pluralise } from "@utils/misc";
-import { ModalContent, ModalHeader, ModalRoot, openModal } from "@utils/modal";
-<<<<<<<< HEAD:src/components/settings/tabs/plugins/ContributorModal.tsx
-=======
 import { DevsById } from "@utils/constants";
 import { fetchUserProfile } from "@utils/discord";
 import { classes, pluralise } from "@utils/misc";
-import { ModalContent, ModalHeader, ModalRoot, openModal } from "@utils/modal";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
+import { ModalContent, ModalRoot, openModal } from "@utils/modal";
 import { User } from "@vencord/discord-types";
-import { Flex, Forms, showToast, useEffect, useMemo, UserProfileStore, useStateFromStores } from "@webpack/common";
+import { Forms, showToast, useEffect, useMemo, UserProfileStore, useStateFromStores } from "@webpack/common";
 
 import Plugins from "~plugins";
 
 import { GithubButton, WebsiteButton } from "./LinkIconButton";
 import { PluginCard } from "./PluginCard";
-import { Margins } from "@utils/margins";
-import { ProfileBadge } from "@api/Badges";
-<<<<<<< HEAD
-========
-import { Flex, Forms, showToast, useEffect, useMemo, UserProfileStore, useStateFromStores } from "@webpack/common";
-import { User } from "@vencord/discord-types";
-
-import Plugins from "~plugins";
-
-import { PluginCard } from ".";
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/PluginSettings/ContributorModal.tsx
-=======
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 const cl = classNameFactory("vc-author-modal-");
 
-export function openStaffModal(badge: ProfileBadge) {
-    openModal(modalProps =>
-        <ModalRoot {...modalProps}>
-            <ErrorBoundary>
-                <ModalContent className={cl("root")}>
-                    <StaffModal badge={badge} />
-                </ModalContent>
-            </ErrorBoundary>
-        </ModalRoot>
-    );
-}
-
-<<<<<<< HEAD
-<<<<<<<< HEAD:src/components/settings/tabs/plugins/ContributorModal.tsx
-=======
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
-function StaffModal({ badge }: { badge: ProfileBadge; }) {
-    return (
-        <>
-            <ModalHeader>
-                <Flex style={{ width: "100%", justifyContent: "center", gap: "1rem" }}>
-                    <Forms.FormTitle
-                        style={{
-                            width: "100%",
-                            textAlign: "center",
-                            margin: 0,
-                        }}
-                    >
-                        🦅 EagleCord
-                    </Forms.FormTitle>
-                </Flex>
-            </ModalHeader>
-
-            <ModalContent>
-                <Flex style={{ justifyContent: "center", gap: "1rem" }}>
-                    <img
-                        src={badge.image}
-                        alt="EagleCord Former Staff Badge"
-                        style={{
-                            width: 64,
-                            height: 64,
-                            filter: "grayscale(100%)"
-                        }}
-                    />
-                </Flex>
-                <div style={{ padding: "1em", textAlign: "center", gap: "1rem" }}>
-                    <Forms.FormText>{badge.description}</Forms.FormText>
-                    <Forms.FormText className={Margins.top20}>
-                        This user is a former staff member of EagleCord. I want to honor and remember my former colleagues.
-                    </Forms.FormText>
-                </div>
-            </ModalContent>
-        </>
-    );
-}
-
-<<<<<<< HEAD
-========
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/PluginSettings/ContributorModal.tsx
-=======
-
-
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 export function openContributorModal(user: User) {
     openModal(modalProps =>
         <ModalRoot {...modalProps}>
@@ -133,49 +36,6 @@ export function openContributorModal(user: User) {
     );
 }
 
-<<<<<<< HEAD
-function StaffModal({ badge }: { badge: ProfileBadge; }) {
-    return (
-        <>
-            <ModalHeader>
-                <Flex style={{ width: "100%", justifyContent: "center", gap: "1rem" }}>
-                    <Forms.FormTitle
-                        style={{
-                            width: "100%",
-                            textAlign: "center",
-                            margin: 0,
-                        }}
-                    >
-                        🦅 EagleCord
-                    </Forms.FormTitle>
-                </Flex>
-            </ModalHeader>
-
-            <ModalContent>
-                <Flex style={{ justifyContent: "center", gap: "1rem" }}>
-                    <img
-                        src={badge.image}
-                        alt="EagleCord Former Staff Badge"
-                        style={{
-                            width: 64,
-                            height: 64,
-                            filter: "grayscale(100%)"
-                        }}
-                    />
-                </Flex>
-                <div style={{ padding: "1em", textAlign: "center", gap: "1rem" }}>
-                    <Forms.FormText>{badge.description}</Forms.FormText>
-                    <Forms.FormText className={Margins.top20}>
-                        This user is a former staff member of EagleCord. I want to honor and remember my former colleagues.
-                    </Forms.FormText>
-                </div>
-            </ModalContent>
-        </>
-    );
-}
-
-=======
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 function ContributorModal({ user }: { user: User; }) {
     useSettings();
 
@@ -253,7 +113,3 @@ function ContributorModal({ user }: { user: User; }) {
         </>
     );
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c

@@ -16,19 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-<<<<<<< HEAD
-=======
-import { ErrorCard } from "@components/ErrorCard";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { LazyComponent, LazyComponentWrapper } from "@utils/lazyReact";
 import { Logger } from "@utils/Logger";
 import { Margins } from "@utils/margins";
 import type { React } from "@webpack/common";
-<<<<<<< HEAD
 
 import { ErrorCard } from "./ErrorCard";
-=======
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
 interface Props<T = any> {
     /** Render nothing if an error occurs */

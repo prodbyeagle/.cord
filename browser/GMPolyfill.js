@@ -18,12 +18,8 @@
 
 function parseHeaders(headers) {
     const result = new Headers();
-<<<<<<< HEAD
     if (!headers)
         return result;
-=======
-    if (!headers) return result;
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 
     const headersArr = headers.trim().split("\n");
     for (var i = 0; i < headersArr.length; i++) {

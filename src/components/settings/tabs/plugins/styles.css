@@ -1,92 +1,77 @@
-/*
- * Vencord, a modification for Discord's desktop app
- * Copyright (c) 2022 Vendicated and contributors
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
-
-.vc-plugins-grid {
-    margin-top: 16px;
-    display: grid;
-    grid-gap: 16px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+.vc-settings-tab-bar {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
-.vc-plugins-info-button {
-    height: 24px;
-    width: 24px;
-    padding: 0;
-    background: transparent;
-    margin-right: 8px;
+.vc-settings-tab-bar-item {
+    margin-right: 32px;
+    padding-bottom: 16px;
+    margin-bottom: -2px;
 }
 
-.vc-plugins-settings-button:hover {
-    color: var(--interactive-hover);
-}
-
-.vc-plugins-filter-controls {
-    display: grid;
-    height: 40px;
-    gap: 10px;
-    grid-template-columns: 1fr 150px;
-}
-
-.vc-addon-badge {
-    padding: 0 6px;
-    font-family: var(--font-display);
-    font-weight: 500;
-    border-radius: 8px;
-    height: 16px;
-    font-size: 12px;
-    line-height: 16px;
-    color: var(--white-500);
-    text-align: center;
-}
-
-.vc-plugins-dep-name {
-    margin: 0 auto;
-}
-
-.vc-plugins-info-card {
-    padding: 1em;
-    height: 8em;
+.vc-settings-donate {
     display: flex;
-    flex-direction: column;
-    gap: 0.25em;
+    flex-direction: row;
 }
 
-<<<<<<<< HEAD:src/components/settings/tabs/plugins/styles.css
-========
+.vc-settings-card {
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
 .vc-warning-card {
     padding: 1em;
     background: var(--info-warning-background);
     border: 1px solid var(--info-warning-foreground);
-    color: var(--info-warning-text);
+    color: var(--info-warning-foreground);
 }
 
->>>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c:src/components/PluginSettings/styles.css
-.vc-plugins-restart-button {
-    margin-top: 0.5em;
-    background: var(--info-warning-foreground) !important;
+.vc-backup-restore-card {
+    background-color: var(--info-warning-background);
+    border-color: var(--info-warning-foreground);
+    color: var(--info-warning-foreground);
 }
 
-.vc-plugins-info-icon:not(:hover, :focus) {
-    color: var(--text-muted);
+.vc-settings-theme-links {
+    /* Needed to fix bad themes that hide certain textarea elements for whatever eldritch reason */
+    display: inline-block !important;
+    color: var(--text-default) !important;
+    padding: 0.5em 1em;
+    border: 1px solid var(--input-border);
+    max-height: unset;
+    background-color: transparent;
+    box-sizing: border-box;
+    resize: none;
+    width: 100%;
+    font-size: 1em;
+    line-height: 2em;
+    white-space: nowrap;
 }
 
-.vc-plugins-settings {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25em;
+.vc-settings-theme-links::placeholder {
+    color: var(--text-muted) !important;
+}
+
+.vc-settings-theme-links:focus {
+    background-color: var(--background-tertiary);
+}
+
+.vc-cloud-settings-sync-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+}
+
+.vc-cloud-erase-data-danger-btn {
+    color: var(--white-500);
+    background-color: var(--button-danger-background);
+}
+
+.vc-updater-modal {
+    padding: 1.5em !important;
+}
+
+.vc-updater-modal-close-button {
+    float: right;
 }

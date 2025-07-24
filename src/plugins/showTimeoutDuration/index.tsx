@@ -15,10 +15,6 @@ import definePlugin, { OptionType } from "@utils/types";
 import { Message } from "@vencord/discord-types";
 import { findComponentLazy } from "@webpack";
 import { ChannelStore, GuildMemberStore, Text, Tooltip } from "@webpack/common";
-<<<<<<< HEAD
-=======
-import { Message } from "@vencord/discord-types";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { FunctionComponent, ReactNode } from "react";
 
 const countDownFilter = canonicalizeMatch("#{intl::MAX_AGE_NEVER}");

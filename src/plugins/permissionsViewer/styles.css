@@ -140,12 +140,7 @@
 
 /* copy pasted from discord cause impossible to webpack find */
 .vc-permviewer-role-button {
-<<<<<<< HEAD
     border-radius: var(--radius-sm);
-=======
-    border-radius: var(--radius-xs);
-    background: var(--background-mod-faint);
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
     color: var(--interactive-normal);
     border: 1px solid var(--user-profile-border);
     /* stylelint-disable-next-line value-no-vendor-prefix */
@@ -155,14 +150,8 @@
     padding: 4px;
 }
 
-<<<<<<< HEAD
 .vc-permviewer-role-button:hover {
     background-color: var(--user-profile-background-hover);
-=======
-.custom-profile-theme .vc-permviewer-role-button {
-    background: rgb(var(--bg-overlay-color) / var(--bg-overlay-opacity-6));
-    border-color: var(--profile-body-border-color);
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 }
 
 .vc-permviewer-granted-by-container {

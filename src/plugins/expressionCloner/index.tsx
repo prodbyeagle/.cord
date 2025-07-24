@@ -27,12 +27,7 @@ import { ModalContent, ModalHeader, ModalRoot, openModalLazy } from "@utils/moda
 import definePlugin from "@utils/types";
 import { Guild } from "@vencord/discord-types";
 import { findByCodeLazy, findStoreLazy } from "@webpack";
-<<<<<<< HEAD
 import { Constants, EmojiStore, FluxDispatcher, Forms, GuildStore, IconUtils, Menu, PermissionsBits, PermissionStore, React, RestAPI, Toasts, Tooltip, UserStore } from "@webpack/common";
-=======
-import { Constants, EmojiStore, FluxDispatcher, Forms, GuildStore, Menu, PermissionsBits, PermissionStore, React, RestAPI, Toasts, Tooltip, UserStore } from "@webpack/common";
-import { Guild } from "@vencord/discord-types";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import { Promisable } from "type-fest";
 
 const StickersStore = findStoreLazy("StickersStore");

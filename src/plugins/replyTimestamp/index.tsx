@@ -12,10 +12,6 @@ import definePlugin from "@utils/types";
 import type { Message } from "@vencord/discord-types";
 import { findByPropsLazy } from "@webpack";
 import { DateUtils, Timestamp } from "@webpack/common";
-<<<<<<< HEAD
-=======
-import type { Message } from "@vencord/discord-types";
->>>>>>> 9c5b8cc7de5c5efe7d24387258b9df376abf077c
 import type { HTMLAttributes } from "react";
 
 const MessageClasses = findByPropsLazy("separator", "latin24CompactTimeStamp");
