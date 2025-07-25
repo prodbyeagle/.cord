@@ -83,14 +83,38 @@ async function loadBadges(noCache = false) {
     DonorBadges = await fetch("https://badges.vencord.dev/badges.json", init)
         .then(r => r.json());
 
-    //? EAGLECORD BADGES START
-    //TODO: add logic to listen to event of SettingsStore. {@prodbyeagle}
     EagleBadges = await fetch("https://raw.githubusercontent.com/prodbyeagle/dotfiles/refs/heads/main/Vencord/eagleCord/badges.json", init)
         .then(r => r.json());
 
     addProfileBadge(OwnerBadge);
     addProfileBadge(FormerStaff);
-    //? EAGLECORD BADGES END
+
+    //TODO: fix that badges cant be toggled. ( always off or something like that )
+    // SettingsStore.addChangeListener("eaglecord.showBadge", async () => {
+
+    //     const enabled = SettingsStore.store.eaglecord?.showBadge;
+    //     log.info(`SettingsStore change detected: eaglecord.showBadge = ${enabled}`);
+
+    //     if (enabled) {
+    //         addProfileBadge(OwnerBadge);
+    //         addProfileBadge(FormerStaff);
+
+    //         Toasts.show({
+    //             id: Toasts.genId(),
+    //             message: "EagleCord Badges enabled – they will now show on profiles.",
+    //             type: Toasts.Type.SUCCESS
+    //         });
+    //     } else {
+    //         removeProfileBadge(OwnerBadge);
+    //         removeProfileBadge(FormerStaff);
+
+    //         Toasts.show({
+    //             id: Toasts.genId(),
+    //             message: "EagleCord Badges disabled – they will no longer show on profiles.",
+    //             type: Toasts.Type.FAILURE
+    //         });
+    //     }
+    // });
 }
 
 let intervalId: any;
@@ -157,21 +181,6 @@ export default definePlugin({
 
         clearInterval(intervalId);
         intervalId = setInterval(loadBadges, 1000 * 60 * 30); // 30 minutes
-
-        SettingsStore.addChangeListener("eaglecord.showBadge", () => {
-            const enabled = SettingsStore.store.eaglecord?.showBadge;
-
-            if (enabled) {
-                addProfileBadge(OwnerBadge);
-                addProfileBadge(FormerStaff);
-            } else {
-                Toasts.show({
-                    id: Toasts.genId(),
-                    message: "EagleCord Badges disabled – they will no longer show on profiles.",
-                    type: Toasts.Type.MESSAGE
-                });
-            }
-        });
     },
 
     async stop() {
@@ -266,9 +275,6 @@ export default definePlugin({
     },
 
     getEagleCordBadges(userId: string) {
-        const isEnabled = SettingsStore.store.eaglecord?.showBadge;
-        if (!isEnabled) return [];
-
         return EagleBadges[userId]?.map(badge => ({
             image: badge.badge,
             description: badge.tooltip,

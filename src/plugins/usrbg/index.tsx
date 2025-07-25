@@ -10,7 +10,7 @@ import { Logger } from "@utils/Logger";
 import definePlugin, { OptionType } from "@utils/types";
 import { Toasts } from "@webpack/common";
 
-const log = new Logger("EAGLEUSRBG", "#139375");
+const log = new Logger("USRBG (eagleCord)", "#139375");
 
 const GITHUB_JSON_URL = "https://raw.githubusercontent.com/prodbyeagle/dotfiles/refs/heads/main/Vencord/eagleCord/usrbg.json";
 const GITHUB_IMAGE_BASE = "https://raw.githubusercontent.com/prodbyeagle/dotfiles/refs/heads/main/Vencord/eagleCord/images/";

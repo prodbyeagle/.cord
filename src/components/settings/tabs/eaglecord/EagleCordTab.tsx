@@ -16,11 +16,12 @@ function EagleCordTab() {
             <Forms.FormSection className={Margins.top16} title="Funktionen">
                 <Switch
                     key="eaglecord.showBadge"
-                    value={settings.eaglecord.showBadge}
+                    value={false} // settings.eaglecord.showBadge
                     onChange={v => settings.eaglecord.showBadge = v}
+                    disabled
                     note="Zeigt benutzerdefinierte Badges bei manchen Nutzern."
                 >
-                    Benutzerdefinierte-Badges anzeigen
+                    Benutzerdefinierte-Badges anzeigen ( GERADE KAPUTT )
                 </Switch>
 
                 <Switch

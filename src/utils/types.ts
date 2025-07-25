@@ -173,7 +173,7 @@ export interface PluginDef {
     userProfileBadge?: ProfileBadge;
 
     /** Custom Badge for VIP Users. Do not change*/
-    VIPBadge?: ProfileBadge;
+    EagleBadge?: ProfileBadge;
 
     onMessageClick?: MessageClickListener;
     onBeforeMessageSend?: MessageSendListener;
