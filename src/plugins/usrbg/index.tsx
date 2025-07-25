@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import { definePluginSettings } from "@api/Settings";
+import { definePluginSettings, SettingsStore } from "@api/Settings";
 import { Devs } from "@utils/constants";
 import { Logger } from "@utils/Logger";
 import definePlugin, { OptionType } from "@utils/types";
@@ -64,7 +64,7 @@ export default definePlugin({
     description: "Displays user banners from USRBG (MODDED BY EAGLE), allowing anyone to get a banner without Nitro",
     authors: [Devs.AutumnVN, Devs.katlyn, Devs.pylix, Devs.TheKodeToad, Devs.prodbyeagle],
     settings,
-
+    required: true,
     toolboxActions: {
         async "Refetch Banners"() {
             const success = await reloadBanners({
@@ -175,6 +175,36 @@ export default definePlugin({
     },
 
     async start() {
+        if (SettingsStore.store.eaglecord?.showBanner) {
+            await reloadBanners({
+                log,
+                setData: data => { this.data = data; }
+            });
+        } else {
+            this.data = null;
+        }
+
+        SettingsStore.addChangeListener("eaglecord.showBanner", async (enabled: boolean) => {
+            if (enabled) {
+                Toasts.show({
+                    id: Toasts.genId(),
+                    message: "Custom Banner eingeschalten.",
+                    type: Toasts.Type.SUCCESS
+                });
+                await reloadBanners({
+                    log,
+                    setData: (data) => { this.data = data; }
+                });
+            } else {
+                Toasts.show({
+                    id: Toasts.genId(),
+                    message: "Custom Banner ausgeschalten.",
+                    type: Toasts.Type.SUCCESS
+                });
+                this.data = null;
+            }
+        });
+
         log.info("Starting plugin... Fetching banner data");
 
         try {

@@ -92,9 +92,6 @@ export function _getBadges(args: BadgeUserArgs) {
     const donorBadges = BadgeAPIPlugin.getDonorBadges(args.userId);
     if (donorBadges) badges.unshift(...donorBadges);
 
-    const eagleBadges = (Plugins.BadgeAPI as unknown as typeof import("../plugins/_api/badges").default).getEagleCordBadges(args.userId);
-    if (eagleBadges) badges.unshift(...eagleBadges);
-
     return badges;
 }
 

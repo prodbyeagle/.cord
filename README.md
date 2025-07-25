@@ -10,7 +10,7 @@ The cutest Discord client mod
 ## Features
 
 -   Easy to install
--   [100+ built in plugins](https://vencord.dev/plugins)
+-   [100+ built in plugins](https://eaglecord.vercel.app/plugins)
 -   Fairly lightweight despite the many inbuilt plugins
 -   Excellent Browser Support: Run Vencord in your Browser via extension or UserScript
 -   Works on any Discord branch: Stable, Canary or PTB all work
@@ -19,10 +19,9 @@ The cutest Discord client mod
 -   Maintained very actively, broken plugins are usually fixed within 12 hours
 -   Settings sync: Keep your plugins and their settings synchronised between devices / apps (optional)
 
-
 ## Installing / Uninstalling
 
-Visit https://vencord.dev/download
+Visit https://eaglecord.vercel.app/download
 
 ## Join our Support/Community Server
 
@@ -33,8 +32,7 @@ https://discord.gg/D9uwnFnqmd
 |     **Thanks a lot to all Vencord [sponsors](https://github.com/sponsors/Vendicated)!!**     |
 | :------------------------------------------------------------------------------------------: |
 |   [![](https://meow.vendicated.dev/sponsors.png)](https://github.com/sponsors/Vendicated)    |
-| *generated using [github-sponsor-graph](https://github.com/Vendicated/github-sponsor-graph)* |
-
+| _generated using [github-sponsor-graph](https://github.com/Vendicated/github-sponsor-graph)_ |
 
 ## Star History
 

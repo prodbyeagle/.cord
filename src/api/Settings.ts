@@ -75,6 +75,11 @@ export interface Settings {
         settingsSync: boolean;
         settingsSyncVersion: number;
     };
+
+    eaglecord: {
+        showBadge: boolean,
+        showBanner: boolean,
+    };
 }
 
 const DefaultSettings: Settings = {
@@ -105,6 +110,11 @@ const DefaultSettings: Settings = {
         url: "https://api.vencord.dev/",
         settingsSync: false,
         settingsSyncVersion: 0
+    },
+
+    eaglecord: {
+        showBadge: true,
+        showBanner: true,
     }
 };
 

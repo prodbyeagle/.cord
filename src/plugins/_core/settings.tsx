@@ -17,7 +17,7 @@
 */
 
 import { Settings } from "@api/Settings";
-import { BackupAndRestoreTab, CloudTab, PatchHelperTab, PluginsTab, ThemesTab, UpdaterTab, VencordTab } from "@components/settings/tabs";
+import { BackupAndRestoreTab, CloudTab, EagleCordTab, PatchHelperTab, PluginsTab, ThemesTab, UpdaterTab, VencordTab } from "@components/settings/tabs";
 import { Devs } from "@utils/constants";
 import { getIntlMessage } from "@utils/discord";
 import definePlugin, { OptionType } from "@utils/types";
@@ -31,7 +31,7 @@ type SectionTypes = Record<SectionType, SectionType>;
 export default definePlugin({
     name: "Settings",
     description: "Adds Settings UI and debug info",
-    authors: [Devs.Ven, Devs.Megu],
+    authors: [Devs.Ven, Devs.Megu, Devs.prodbyeagle],
     required: true,
 
     patches: [
@@ -118,6 +118,11 @@ export default definePlugin({
                 label: "Backup & Restore",
                 element: BackupAndRestoreTab,
                 className: "vc-backup-restore"
+            },
+            {
+                section: "EagleCord",
+                label: "EagleCord",
+                element: EagleCordTab
             },
             IS_DEV && {
                 section: "VencordPatchHelper",

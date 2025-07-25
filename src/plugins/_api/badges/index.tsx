@@ -19,6 +19,7 @@
 import "./fixDiscordBadgePadding.css";
 
 import { _getBadges, addProfileBadge, BadgePosition, BadgeUserArgs, ProfileBadge } from "@api/Badges";
+import { SettingsStore } from "@api/Settings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Flex } from "@components/Flex";
 import { Heart } from "@components/Heart";
@@ -82,11 +83,14 @@ async function loadBadges(noCache = false) {
     DonorBadges = await fetch("https://badges.vencord.dev/badges.json", init)
         .then(r => r.json());
 
+    //? EAGLECORD BADGES START
+    //TODO: add logic to listen to event of SettingsStore. {@prodbyeagle}
     EagleBadges = await fetch("https://raw.githubusercontent.com/prodbyeagle/dotfiles/refs/heads/main/Vencord/eagleCord/badges.json", init)
         .then(r => r.json());
 
     addProfileBadge(OwnerBadge);
     addProfileBadge(FormerStaff);
+    //? EAGLECORD BADGES END
 }
 
 let intervalId: any;
@@ -96,6 +100,7 @@ export default definePlugin({
     description: "API to add badges to users. (modded by prodbyeagle)",
     authors: [Devs.prodbyeagle, Devs.Megu, Devs.Ven, Devs.TheSun],
     required: true,
+
     patches: [
         {
             find: ".MODAL]:26",
@@ -152,6 +157,21 @@ export default definePlugin({
 
         clearInterval(intervalId);
         intervalId = setInterval(loadBadges, 1000 * 60 * 30); // 30 minutes
+
+        SettingsStore.addChangeListener("eaglecord.showBadge", () => {
+            const enabled = SettingsStore.store.eaglecord?.showBadge;
+
+            if (enabled) {
+                addProfileBadge(OwnerBadge);
+                addProfileBadge(FormerStaff);
+            } else {
+                Toasts.show({
+                    id: Toasts.genId(),
+                    message: "EagleCord Badges disabled – they will no longer show on profiles.",
+                    type: Toasts.Type.MESSAGE
+                });
+            }
+        });
     },
 
     async stop() {
@@ -246,6 +266,9 @@ export default definePlugin({
     },
 
     getEagleCordBadges(userId: string) {
+        const isEnabled = SettingsStore.store.eaglecord?.showBadge;
+        if (!isEnabled) return [];
+
         return EagleBadges[userId]?.map(badge => ({
             image: badge.badge,
             description: badge.tooltip,

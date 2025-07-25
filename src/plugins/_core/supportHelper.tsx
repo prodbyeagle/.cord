@@ -205,7 +205,7 @@ export default definePlugin({
                     body: <div>
                         <Forms.FormText>You are using an externally updated Vencord version, which we do not provide support for!</Forms.FormText>
                         <Forms.FormText className={Margins.top8}>
-                            Please either switch to an <Link href="https://vencord.dev/download">officially supported version of Vencord</Link>, or
+                            Please either switch to an <Link href="https://eaglecord.vercel.app/download">officially supported version of Vencord</Link>, or
                             contact your package maintainer for support instead.
                         </Forms.FormText>
                     </div>
@@ -219,8 +219,8 @@ export default definePlugin({
                         <Forms.FormText>You are using a custom build of Vencord, which we do not provide support for!</Forms.FormText>
 
                         <Forms.FormText className={Margins.top8}>
-                            We only provide support for <Link href="https://vencord.dev/download">official builds</Link>.
-                            Either <Link href="https://vencord.dev/download">switch to an official build</Link> or figure your issue out yourself.
+                            We only provide support for <Link href="https://eaglecord.vercel.app/download">official builds</Link>.
+                            Either <Link href="https://eaglecord.vercel.app/download">switch to an official build</Link> or figure your issue out yourself.
                         </Forms.FormText>
 
                         <Text variant="text-md/bold" className={Margins.top8}>You will be banned from receiving support if you ignore this rule.</Text>
