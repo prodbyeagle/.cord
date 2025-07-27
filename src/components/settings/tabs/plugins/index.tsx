@@ -74,33 +74,45 @@ const enum SearchStatus {
 }
 
 function ExcludedPluginsList({ search }: { search: string; }) {
-    const matchingExcludedPlugins = Object.entries(ExcludedPlugins)
-        .filter(([name]) => name.toLowerCase().includes(search));
+    const matching = Object.entries(ExcludedPlugins).filter(([name]) =>
+        name.toLowerCase().includes(search)
+    );
 
-    const ExcludedReasons: Record<"web" | "discordDesktop" | "vesktop" | "desktop" | "dev", string> = {
-        desktop: "Discord Desktop app or Vesktop",
-        discordDesktop: "Discord Desktop app",
-        vesktop: "Vesktop app",
-        web: "Vesktop app and the Web version of Discord",
-        dev: "Developer version of Vencord"
+    if (!matching.length) {
+        return (
+            <Text variant="text-md/normal" className={Margins.top16}>
+                No excluded plugins match your search.
+            </Text>
+        );
+    }
+
+    const reasonMap: Record<keyof typeof ExcludedPlugins, string> = {
+        desktop: "Only available on Desktop/Vesktop",
+        discordDesktop: "Only available on Discord Desktop",
+        vesktop: "Only available on Vesktop",
+        web: "Only available on Web/Vesktop",
+        dev: "Only available in Dev builds"
     };
 
     return (
-        <Text variant="text-md/normal" className={Margins.top16}>
-            {matchingExcludedPlugins.length
-                ? <>
-                    <Forms.FormText>Are you looking for:</Forms.FormText>
-                    <ul>
-                        {matchingExcludedPlugins.map(([name, reason]) => (
-                            <li key={name}>
-                                <b>{name}</b>: Only available on the {ExcludedReasons[reason]}
-                            </li>
-                        ))}
-                    </ul>
-                </>
-                : "No plugins meet the search criteria."
-            }
-        </Text>
+        <div className={classes(Margins.top20, cl("excluded-plugins"))}>
+            <Forms.FormTitle tag="h5">Unavailable Plugins</Forms.FormTitle>
+            <Forms.FormText className={Margins.bottom8}>
+                These plugins are not available in your current platform/environment:
+            </Forms.FormText>
+            <div className={cl("excluded-list")}>
+                {matching.map(([name, reason]) => (
+                    <Card className={cl("excluded-card")} key={name}>
+                        <div className={cl("excluded-header")}>
+                            <Text variant="text-md/semibold">{name}</Text>
+                            <span className={cl("excluded-badge")}>
+                                {reasonMap[reason]}
+                            </span>
+                        </div>
+                    </Card>
+                ))}
+            </div>
+        </div>
     );
 }
 

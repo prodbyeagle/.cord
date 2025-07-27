@@ -81,3 +81,38 @@
     flex-direction: column;
     gap: 1.25em;
 }
+
+.vc-plugins-excluded-plugins {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.vc-plugins-excluded-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.vc-plugins-excluded-card {
+    background: var(--background-secondary-alt);
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.vc-plugins-excluded-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vc-plugins-excluded-badge {
+    background-color: var(--background-modifier-accent);
+    color: var(--text-normal);
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 2px 6px;
+}

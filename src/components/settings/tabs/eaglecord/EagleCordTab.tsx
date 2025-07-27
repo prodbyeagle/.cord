@@ -1,11 +1,9 @@
 import { SettingsTab, wrapTab } from "@components/settings/tabs/BaseTab";
-import { React, Forms, Switch, UserStore } from "@webpack/common";
+import { React, Forms, Switch } from "@webpack/common";
 import { useSettings } from "@api/Settings";
 import { Margins } from "@utils/margins";
 
 function EagleCordTab() {
-    const user = UserStore.getCurrentUser();
-
     const settings = useSettings([
         "eaglecord.showBadge",
         "eaglecord.showBanner"
