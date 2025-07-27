@@ -102,7 +102,7 @@ function ExcludedPluginsList({ search }: { search: string; }) {
             </Forms.FormText>
             <div className={cl("excluded-list")}>
                 {matching.map(([name, reason]) => (
-                    <Card key={name}>
+                    <Card className={cl("excluded-card")} key={name}>
                         <div className={cl("excluded-header")}>
                             <Text variant="text-md/semibold">{name}</Text>
                             <Text className={cl("excluded-badge")} variant="text-sm/medium">
