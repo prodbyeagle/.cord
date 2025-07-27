@@ -95,19 +95,19 @@ function ExcludedPluginsList({ search }: { search: string; }) {
     };
 
     return (
-        <div className={classes(Margins.top20, cl("excluded-plugins"))}>
+        <div className={classes(Margins.top20)}>
             <Forms.FormTitle tag="h5">Unavailable Plugins</Forms.FormTitle>
             <Forms.FormText className={Margins.bottom8}>
                 These plugins are not available in your current platform/environment:
             </Forms.FormText>
-            <div className={cl("excluded-list")}>
+            <div>
                 {matching.map(([name, reason]) => (
-                    <Card className={cl("excluded-card")} key={name}>
-                        <div className={cl("excluded-header")}>
+                    <Card key={name}>
+                        <div>
                             <Text variant="text-md/semibold">{name}</Text>
-                            <span className={cl("excluded-badge")}>
+                            <Text variant="text-sm/medium">
                                 {reasonMap[reason]}
-                            </span>
+                            </Text>
                         </div>
                     </Card>
                 ))}
