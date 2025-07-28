@@ -1,20 +1,8 @@
 /*
- * Vencord, a modification for Discord's desktop app
- * Copyright (c) 2023 Vendicated and contributors
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
+ * Vencord, a Discord client mod
+ * Copyright (c) 2025 Vendicated and contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
 
 import { showNotification } from "@api/Notifications";
 import { definePluginSettings } from "@api/Settings";
@@ -23,9 +11,10 @@ import { Logger } from "@utils/Logger";
 import { canonicalizeMatch, canonicalizeReplace } from "@utils/patches";
 import definePlugin, { OptionType, ReporterTestable } from "@utils/types";
 import { filters, findAll, search } from "@webpack";
+import { Toasts } from "@webpack/common";
 
 const PORT = 8485;
-const NAV_ID = "dev-companion-reconnect";
+// const NAV_ID = "dev-companion-reconnect";
 
 const logger = new Logger("DevCompanion");
 
@@ -98,11 +87,14 @@ function initWs(isManual = false) {
 
         logger.info("Connected to WebSocket");
 
-        (settings.store.notifyOnAutoConnect || isManual) && showNotification({
-            title: "Dev Companion Connected",
-            body: "Connected to WebSocket",
-            noPersist: true
+        (settings.store.notifyOnAutoConnect || isManual) && Toasts.show({
+            message: "Dev Companion Connected",
+            id: Toasts.genId(),
+            type: Toasts.Type.SUCCESS,
         });
+
+
+
     });
 
     ws.addEventListener("error", e => {

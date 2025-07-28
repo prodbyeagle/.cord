@@ -1,5 +1,4 @@
 /* eslint-disable simple-header/header */
-/* eslint-disable no-duplicate-imports */
 /*
  * Vencord, a Discord client mod
  * Copyright (c) 2025 Vendicated and contributors
@@ -61,6 +60,5 @@ export default definePlugin({
 
     transform() {
         return `eagleCord v${VERSION}`;
-
     },
 });

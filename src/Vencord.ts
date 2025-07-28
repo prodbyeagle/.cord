@@ -112,8 +112,8 @@ async function runUpdateCheck() {
             await update();
             if (Settings.autoUpdateNotification) {
                 notify({
-                    title: "Vencord has been updated!",
-                    body: "Click here to restart",
+                    title: "EagleCord wurde geupdated!",
+                    body: "Klicke hier, um EagleCord neu zu starten.",
                     onClick: relaunch
                 });
             }
@@ -121,8 +121,8 @@ async function runUpdateCheck() {
         }
 
         notify({
-            title: "A Vencord update is available!",
-            body: "Click here to view the update",
+            title: "Ein EagleCord Update ist verfügbar!",
+            body: "Klicke hier um das Update zu sehen.",
             onClick: openUpdaterModal!
         });
     } catch (err) {

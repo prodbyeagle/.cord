@@ -6,12 +6,14 @@
 
 import "./ContributorModal.css";
 
+import { ProfileBadge } from "@api/Badges";
 import { useSettings } from "@api/Settings";
 import { classNameFactory } from "@api/Styles";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Link } from "@components/Link";
 import { DevsById } from "@utils/constants";
 import { fetchUserProfile } from "@utils/discord";
+import { Margins } from "@utils/margins";
 import { classes, pluralise } from "@utils/misc";
 import { ModalContent, ModalHeader, ModalRoot, openModal } from "@utils/modal";
 import { User } from "@vencord/discord-types";
@@ -21,8 +23,6 @@ import Plugins from "~plugins";
 
 import { GithubButton, WebsiteButton } from "./LinkIconButton";
 import { PluginCard } from "./PluginCard";
-import { ProfileBadge } from "@api/Badges";
-import { Margins } from "@utils/margins";
 
 const cl = classNameFactory("vc-author-modal-");
 

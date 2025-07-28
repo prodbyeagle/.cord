@@ -19,7 +19,6 @@
 import "./fixDiscordBadgePadding.css";
 
 import { _getBadges, addProfileBadge, BadgePosition, BadgeUserArgs, ProfileBadge } from "@api/Badges";
-import { SettingsStore } from "@api/Settings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Flex } from "@components/Flex";
 import { Heart } from "@components/Heart";
@@ -89,7 +88,7 @@ async function loadBadges(noCache = false) {
     addProfileBadge(OwnerBadge);
     addProfileBadge(FormerStaff);
 
-    //TODO: fix that badges cant be toggled. ( always off or something like that )
+    // TODO: fix that badges cant be toggled. ( always off or something like that )
     // SettingsStore.addChangeListener("eaglecord.showBadge", async () => {
 
     //     const enabled = SettingsStore.store.eaglecord?.showBadge;

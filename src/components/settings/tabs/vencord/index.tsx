@@ -114,7 +114,7 @@ function VencordSettings() {
     const user = UserStore.getCurrentUser();
 
     return (
-        <SettingsTab title="Vencord Settings">
+        <SettingsTab title="EagleCord Settings">
             {isEagleUser(user?.id) && (
                 <SpecialCard
                     title="EagleCord"
@@ -220,4 +220,4 @@ function VencordSettings() {
     );
 }
 
-export default wrapTab(VencordSettings, "Vencord Settings");
+export default wrapTab(VencordSettings, "EagleCord Settings");

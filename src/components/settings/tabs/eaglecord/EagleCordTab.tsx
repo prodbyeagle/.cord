@@ -1,7 +1,13 @@
-import { SettingsTab, wrapTab } from "@components/settings/tabs/BaseTab";
-import { React, Forms, Switch } from "@webpack/common";
+/*
+ * Vencord, a Discord client mod
+ * Copyright (c) 2025 Vendicated and contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 import { useSettings } from "@api/Settings";
+import { SettingsTab, wrapTab } from "@components/settings/tabs/BaseTab";
 import { Margins } from "@utils/margins";
+import { Forms, React, Switch } from "@webpack/common";
 
 function EagleCordTab() {
     const settings = useSettings([

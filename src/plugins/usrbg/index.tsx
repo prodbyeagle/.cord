@@ -193,7 +193,7 @@ export default definePlugin({
                 });
                 await reloadBanners({
                     log,
-                    setData: (data) => { this.data = data; }
+                    setData: data => { this.data = data; }
                 });
             } else {
                 Toasts.show({

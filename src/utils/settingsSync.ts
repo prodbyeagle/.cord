@@ -25,11 +25,6 @@ import { chooseFile, saveFile } from "@utils/web";
 import { moment, Toasts } from "@webpack/common";
 import { deflateSync, inflateSync } from "fflate";
 
-import { checkCloudUrlCsp, getCloudAuth, getCloudUrl } from "./cloud";
-import { Logger } from "./Logger";
-import { relaunch } from "./native";
-import { chooseFile, saveFile } from "./web";
-
 export async function importSettings(data: string) {
     try {
         var parsed = JSON.parse(data);
@@ -43,7 +38,7 @@ export async function importSettings(data: string) {
         await VencordNative.settings.set(parsed.settings);
         await VencordNative.quickCss.set(parsed.quickCss);
     } else
-        throw new Error("Invalid Settings. Is this even a Vencord Settings file?");
+        throw new Error("Invalid Settings. Is this even a EagleCord Settings file?");
 }
 
 export async function exportSettings({ minify }: { minify?: boolean; } = {}) {
@@ -81,7 +76,7 @@ export async function uploadSettingsBackup(showToast = true): Promise<void> {
     if (IS_DISCORD_DESKTOP) {
         const [file] = await DiscordNative.fileManager.openFiles({
             filters: [
-                { name: "Vencord Settings Backup", extensions: ["json"] },
+                { name: "EagleCord Settings Backup", extensions: ["json"] },
                 { name: "all", extensions: ["*"] }
             ]
         });
