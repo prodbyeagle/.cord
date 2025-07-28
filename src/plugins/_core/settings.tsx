@@ -80,7 +80,7 @@ export default definePlugin({
         return [
             {
                 section: SectionTypes.HEADER,
-                label: "Vencord",
+                label: "EagleCord",
                 className: "vc-settings-header"
             },
             {
@@ -121,7 +121,7 @@ export default definePlugin({
             },
             {
                 section: "EagleCord",
-                label: "EagleCord",
+                label: "EagleCord Funktionen",
                 element: EagleCordTab
             },
             IS_DEV && {
