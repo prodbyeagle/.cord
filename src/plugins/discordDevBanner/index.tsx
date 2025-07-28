@@ -53,15 +53,14 @@ export default definePlugin({
                 },
                 {
                     match: /\i\.\i\.format\(.{0,15},{buildNumber:(.{0,10})}\)/,
-                    replace: "$self.transform($1)"
+                    replace: "$self.transform()"
                 }
             ]
         }
     ],
 
-    transform(buildNumber: string) {
-        // const releaseChannel: string = window.GLOBAL_ENV.RELEASE_CHANNEL;
-        return `eagleCord ${buildNumber}`;
+    transform() {
+        return `eagleCord v${VERSION}`;
 
     },
 });
