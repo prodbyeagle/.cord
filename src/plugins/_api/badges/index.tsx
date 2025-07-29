@@ -26,7 +26,7 @@ import { Forms, Toasts, UserStore } from "@webpack/common";
 const OWNER_BADGE = "https://cdn.discordapp.com/badge-icons/5e74e9b61934fc1f67c65515d1f7e60d.png";
 
 const ContributorBadge: ProfileBadge = {
-    description: "Vencord / EagleCord Contributor",
+    description: "EagleCord Contributor",
     image: EAGLECORD_ICON_IMAGE,
     position: BadgePosition.END,
     shouldShow: ({ userId }) => shouldShowContributorBadge(userId),
