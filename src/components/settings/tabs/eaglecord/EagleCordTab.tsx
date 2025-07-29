@@ -10,8 +10,8 @@ import { SettingsTab, wrapTab } from "@components/settings/tabs/BaseTab";
 import { Margins } from "@utils/margins";
 import { Forms, Switch, UserStore } from "@webpack/common";
 
-const EAGLE_ICON = "https://cdn.discordapp.com/emojis/1385016033831555233.gif";
-const BG_IMAGE = "https://media.discordapp.net/stickers/1311070166481895484.png?size=2048";
+import { CONTRIB_BACKGROUND_IMAGE, EAGLECORD_ICON_IMAGE } from "../vencord";
+
 
 function EagleCordTab() {
     const user = UserStore.getCurrentUser();
@@ -26,8 +26,8 @@ function EagleCordTab() {
                 title="EagleCord"
                 subtitle="Entwickelt mit ❤️ für die Psychiatrie."
                 description="EagleCord erweitert Vencord um visuelle Verbesserungen, eigene Badges, Themes und mehr."
-                cardImage={EAGLE_ICON}
-                backgroundImage={BG_IMAGE}
+                cardImage={EAGLECORD_ICON_IMAGE}
+                backgroundImage={CONTRIB_BACKGROUND_IMAGE}
                 backgroundColor="#cfa6f5"
             />
 
