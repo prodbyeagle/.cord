@@ -5,29 +5,33 @@
  */
 
 import { useSettings } from "@api/Settings";
+import { SpecialCard } from "@components/settings/SpecialCard";
 import { SettingsTab, wrapTab } from "@components/settings/tabs/BaseTab";
 import { Margins } from "@utils/margins";
-import { Forms, React, Switch } from "@webpack/common";
+import { Forms, Switch, UserStore } from "@webpack/common";
+
+const EAGLE_ICON = "https://cdn.discordapp.com/emojis/1385016033831555233.gif";
+const BG_IMAGE = "https://media.discordapp.net/stickers/1311070166481895484.png?size=2048";
 
 function EagleCordTab() {
+    const user = UserStore.getCurrentUser();
+
     const settings = useSettings([
-        "eaglecord.showBadge",
-        "eaglecord.showBanner"
+        "eaglecord.showBanner",
     ]);
 
     return (
         <SettingsTab title="EagleCord">
-            <Forms.FormSection className={Margins.top16} title="Funktionen">
-                <Switch
-                    key="eaglecord.showBadge"
-                    value={false} // settings.eaglecord.showBadge
-                    onChange={v => settings.eaglecord.showBadge = v}
-                    disabled
-                    note="Zeigt benutzerdefinierte Badges bei manchen Nutzern."
-                >
-                    Benutzerdefinierte-Badges anzeigen ( GERADE KAPUTT )
-                </Switch>
+            <SpecialCard
+                title="EagleCord"
+                subtitle="Entwickelt mit ❤️ für die Psychiatrie."
+                description="EagleCord erweitert Vencord um visuelle Verbesserungen, eigene Badges, Themes und mehr."
+                cardImage={EAGLE_ICON}
+                backgroundImage={BG_IMAGE}
+                backgroundColor="#cfa6f5"
+            />
 
+            <Forms.FormSection title="Funktionen" className={Margins.top16}>
                 <Switch
                     key="eaglecord.showBanner"
                     value={settings.eaglecord.showBanner}

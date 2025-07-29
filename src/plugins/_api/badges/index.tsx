@@ -75,33 +75,6 @@ async function loadBadges(noCache = false) {
 
     addProfileBadge(OwnerBadge);
     addProfileBadge(FormerStaff);
-
-    // TODO: fix that badges cant be toggled. ( always off or something like that )
-    // SettingsStore.addChangeListener("eaglecord.showBadge", async () => {
-
-    //     const enabled = SettingsStore.store.eaglecord?.showBadge;
-    //     log.info(`SettingsStore change detected: eaglecord.showBadge = ${enabled}`);
-
-    //     if (enabled) {
-    //         addProfileBadge(OwnerBadge);
-    //         addProfileBadge(FormerStaff);
-
-    //         Toasts.show({
-    //             id: Toasts.genId(),
-    //             message: "EagleCord Badges enabled – they will now show on profiles.",
-    //             type: Toasts.Type.SUCCESS
-    //         });
-    //     } else {
-    //         removeProfileBadge(OwnerBadge);
-    //         removeProfileBadge(FormerStaff);
-
-    //         Toasts.show({
-    //             id: Toasts.genId(),
-    //             message: "EagleCord Badges disabled – they will no longer show on profiles.",
-    //             type: Toasts.Type.FAILURE
-    //         });
-    //     }
-    // });
 }
 
 let intervalId: any;
