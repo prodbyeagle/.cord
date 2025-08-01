@@ -19,7 +19,7 @@ import { isPluginDev } from "@utils/misc";
 import { relaunch } from "@utils/native";
 import { Forms, React, Switch, useMemo, UserStore } from "@webpack/common";
 
-import { DonateButtonComponent, isDonor, isEagleUser } from "./DonateButton";
+import { isEagleUser } from "./DonateButton";
 import { VibrancySettings } from "./MacVibrancySettings";
 import { NotificationSection } from "./NotificationSettings";
 
@@ -114,7 +114,7 @@ function VencordSettings() {
                 />
             )}
 
-            {isDonor(user?.id)
+            {/* {isDonor(user?.id)
                 ? (
                     <SpecialCard
                         title="Donations"
@@ -138,7 +138,7 @@ function VencordSettings() {
                         <DonateButtonComponent />
                     </SpecialCard>
                 )
-            }
+            } */}
 
             {isPluginDev(user?.id) && (
                 <SpecialCard
