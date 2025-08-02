@@ -11,7 +11,7 @@ import { sendMessage } from "@utils/discord";
 import { Logger } from "@utils/Logger";
 import definePlugin, { OptionType } from "@utils/types";
 import { Command } from "@vencord/discord-types";
-import { Constants, FluxDispatcher, RestAPI, showToast, Toasts } from "@webpack/common";
+import { Constants, FluxDispatcher, RestAPI, showToast, Toasts, UserStore } from "@webpack/common";
 
 const log = new Logger("CommandMirror", "#81c8be");
 
@@ -24,42 +24,36 @@ const settings = definePluginSettings({
     }
 });
 
+/** @todo fix the issue where you need to "visit" the target channel to fix the indefinite stuck being.
+ * @author prodbyeagle
+*/
 async function ensureChannelPrimed(channelId: string): Promise<boolean> {
     log.log(`Versuche Channel ${channelId} vorzubereiten...`);
     try {
-        // ? trying to preload the channel to fix the issue with being stuck in the input.
-        const messages = await RestAPI.get({
+        const response = await RestAPI.get({
             url: Constants.Endpoints.MESSAGES(channelId),
-            query: { limit: 50 },
+            query: { limit: 1 },
             retries: 2
         });
 
-        if (!Array.isArray(messages)) {
-            log.warn("Unerwartete Antwort von RestAPI:", messages);
+        const messages = response.body;
+        if (!Array.isArray(messages) || messages.length === 0) {
+            log.warn("Keine Nachrichten im Zielchannel gefunden.");
             return false;
         }
-
-        if (messages.length === 0) {
-            log.warn("Channel hat keine Nachrichten. Kann nicht vorgeladen werden.");
-            return false;
-        }
-
-        const message = messages[0];
-        log.log("Nachricht erfolgreich geladen:", message);
 
         FluxDispatcher.dispatch({
             type: "MESSAGE_CREATE",
-            message
+            message: messages[0]
         });
 
-        log.log("MESSAGE_CREATE wurde erfolgreich dispatched.");
+        log.log("MESSAGE_CREATE erfolgreich dispatched.");
         return true;
     } catch (err) {
         log.error("Fehler beim Laden des Channels via RestAPI:", err);
         return false;
     }
 }
-
 export default definePlugin({
     name: "Psychiatrie Words",
     description: "Sende von überall einen Versprecher in den Words-Channel",
@@ -72,24 +66,41 @@ export default definePlugin({
             description: "Sendet einen Versprecher in den Words-Channel",
             options: [
                 {
-                    name: "inhalt",
+                    name: "wrong",
                     type: ApplicationCommandOptionType.STRING,
-                    description: "Der Text, den du senden möchtest.",
+                    description: "Das falsche Wort oder die falsche Aussage.",
                     required: true,
                 },
+                {
+                    name: "right",
+                    type: ApplicationCommandOptionType.STRING,
+                    description: "Die Korrektur oder das richtige Wort.",
+                    required: true,
+                },
+                {
+                    name: "person",
+                    type: ApplicationCommandOptionType.USER,
+                    description: "Der User, der den Versprecher gemacht hat.",
+                    required: false,
+                }
             ],
-            async execute(args) {
+            async execute(args, ctx) {
                 log.log("Command `/w` ausgeführt mit args:", args);
 
-                const contentArg = args.find(arg => arg.name === "inhalt");
-                if (!contentArg?.value) {
-                    log.warn("Kein Inhalt angegeben.");
-                    showToast("Kein Inhalt angegeben.", Toasts.Type.FAILURE);
+                const wrong = args.find(arg => arg.name === "wrong")?.value?.trim();
+                const right = args.find(arg => arg.name === "right")?.value?.trim();
+                const person = args.find(arg => arg.name === "person")?.value;
+
+                if (!wrong || !right) {
+                    showToast("Sowohl 'wrong' als auch 'right' müssen angegeben werden.", Toasts.Type.FAILURE);
                     return;
                 }
 
-                const message = contentArg.value.trim();
-                log.log("Nachricht zum Senden:", message);
+                const formatted = `${wrong} = ${right}`;
+                const suffix = person ? ` (<@${person}>)` : "";
+                const message = `${formatted}${suffix} \n\n -# <@${UserStore.getCurrentUser().id}>`;
+
+                log.log("Nachricht wird gesendet:", message);
 
                 const channelId = settings.store.targetChannelId?.trim();
                 if (!channelId) {
@@ -98,26 +109,20 @@ export default definePlugin({
                     return;
                 }
 
-                log.log(`Verwende Channel ID: ${channelId}`);
-
                 const ready = await ensureChannelPrimed(channelId);
                 if (!ready) {
-                    log.error("Channel konnte nicht vorgeladen werden.");
                     showToast("Channel konnte nicht vorgeladen werden.", Toasts.Type.FAILURE);
                     return;
                 }
 
-                log.log("Channel bereit, versuche Nachricht zu senden...");
-
                 try {
                     await sendMessage(channelId, { content: message });
-                    log.log("Nachricht erfolgreich gesendet.");
                     showToast("Nachricht erfolgreich gesendet.", Toasts.Type.SUCCESS);
                 } catch (error) {
                     log.error("Fehler beim Senden der Nachricht:", error);
                     showToast("Nachricht konnte nicht gesendet werden.", Toasts.Type.FAILURE);
                 }
             }
-        } satisfies Command,
-    ],
+        } satisfies Command
+    ]
 });
