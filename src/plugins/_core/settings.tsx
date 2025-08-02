@@ -5,7 +5,7 @@
  */
 
 import { Settings } from "@api/Settings";
-import { BackupAndRestoreTab, CloudTab, EagleCordTab,PatchHelperTab, PluginsTab, ThemesTab, UpdaterTab, VencordTab } from "@components/settings/tabs";
+import { BackupAndRestoreTab, CloudTab, EagleCordTab, PatchHelperTab, PluginsTab, ThemesTab, UpdaterTab, VencordTab } from "@components/settings/tabs";
 import { Devs } from "@utils/constants";
 import { getIntlMessage } from "@utils/discord";
 import definePlugin, { OptionType } from "@utils/types";
@@ -68,8 +68,8 @@ export default definePlugin({
         return [
             {
                 section: SectionTypes.HEADER,
-                label: "EagleCord",
-                className: "vc-settings-header"
+                label: IS_DEV ? "EagleCord DEV" : "EagleCord",
+                className: "vc-settings-header",
             },
             {
                 section: "settings/tabs",
