@@ -32,8 +32,8 @@ migratePluginSettings("DiscordDevBanner", "devBanner");
 
 export default definePlugin({
     name: "DiscordDevBanner",
-    description: "Enables the Discord developer banner, in which displays the build-ID",
-    authors: [Devs.krystalskullofficial, Devs.prodbyeagle],
+    description: "Enables the Discord developer banner, in which displays the build-ID (CODE BY: krystalskullofficial)",
+    authors: [Devs.prodbyeagle],
     settings,
     required: true,
 
