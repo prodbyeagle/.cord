@@ -9,14 +9,13 @@ import { sendMessage } from "@utils/discord";
 import { Command } from "@vencord/discord-types";
 import { showToast, Toasts } from "@webpack/common";
 
-import { PsychiatrieLogger } from ".";
 import { settings } from "./settings";
-import { ensureChannelPrimed, formatMessage } from "./utils";
+import { ensureChannelPrimed, formatMessage, PsychiatrieLogger } from "./utils";
 
 export const commands = [
     {
         name: "w",
-        description: "Sendet einen Versprecher in den Words-Channel",
+        description: "Sendet einen Versprecher in den Words-Channel von überall! Sogar DM`s",
         options: [
             {
                 name: "falsch",
@@ -32,7 +31,7 @@ export const commands = [
             },
             {
                 name: "person",
-                type: ApplicationCommandOptionType.MENTIONABLE,
+                type: ApplicationCommandOptionType.USER,
                 description: "Der User, der den Versprecher gemacht hat.",
                 required: false,
             }
@@ -70,9 +69,11 @@ export const commands = [
             try {
                 await sendMessage(channelId, { content: message });
                 showToast("Nachricht erfolgreich gesendet.", Toasts.Type.SUCCESS);
+                return { content: "✅ Message sent successfully!" };
             } catch (error) {
                 PsychiatrieLogger.error("Failed to send message:", error);
                 showToast("Nachricht konnte nicht gesendet werden.", Toasts.Type.FAILURE);
+                return { content: "❌ Failed to send message." };
             }
         }
     } satisfies Command

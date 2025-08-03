@@ -4,13 +4,14 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import { Logger } from "@utils/Logger";
 import { Constants, FluxDispatcher, RestAPI } from "@webpack/common";
 
-import { PsychiatrieLogger } from ".";
+export const PsychiatrieLogger = new Logger("PsychiatrieWords", "#81c8be");
 
 /**
  * Formats a string containing segments separated by '=' by wrapping each segment
- * (except '=' signs) in backticks. If the input ends with a Discord mention (e.g. ` <@123456>`),
+ * (except '=' signs) in backticks. If the input ends with a Discord mention (user, role, or nickname),
  * the mention is preserved outside the backticks.
  *
  * Example:
@@ -21,7 +22,7 @@ import { PsychiatrieLogger } from ".";
  * @returns The formatted string with segments wrapped in backticks and mention preserved.
  */
 export function formatMessage(input: string): string {
-    const mentionMatch = input.match(/(\s<@\d+>)$/);
+    const mentionMatch = input.match(/(\s<@[\w!&]+>)$/);
     const mention = mentionMatch ? mentionMatch[1] : "";
 
     const mainPart = mention ? input.slice(0, -mention.length).trim() : input.trim();
