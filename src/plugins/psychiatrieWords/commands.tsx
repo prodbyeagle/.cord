@@ -68,12 +68,16 @@ export const commands = [
 
             try {
                 await sendMessage(channelId, { content: message });
-                showToast("Nachricht erfolgreich gesendet.", Toasts.Type.SUCCESS);
-                return { content: "✅ Message sent successfully!" };
+                showToast("✅ Nachricht erfolgreich gesendet.", Toasts.Type.SUCCESS);
+                return {
+                    content: "‎"
+                };
             } catch (error) {
                 PsychiatrieLogger.error("Failed to send message:", error);
-                showToast("Nachricht konnte nicht gesendet werden.", Toasts.Type.FAILURE);
-                return { content: "❌ Failed to send message." };
+                showToast("❌ Nachricht konnte nicht gesendet werden.", Toasts.Type.FAILURE);
+                return {
+                    content: "‎"
+                };
             }
         }
     } satisfies Command
