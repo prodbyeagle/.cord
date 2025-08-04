@@ -1,4 +1,3 @@
-/* eslint-disable simple-header/header */
 /*
  * Vencord, a Discord client mod
  * Copyright (c) 2025 Vendicated and contributors
@@ -18,14 +17,6 @@ const settings = definePluginSettings({
         hidden: true,
     }
 });
-
-// By default Discord only seems too displays 'Staging' so we map the names ourself
-const names: Record<string, string> = {
-    stable: "Stable",
-    ptb: "PTB",
-    canary: "Canary",
-    staging: "Staging"
-};
 
 // Useless for the normal User, but useful for me
 migratePluginSettings("DiscordDevBanner", "devBanner");
