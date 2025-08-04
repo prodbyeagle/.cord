@@ -7,6 +7,7 @@
 import { definePluginSettings, migratePluginSettings } from "@api/Settings";
 import { Devs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
+import { randomUUID } from "crypto";
 
 const settings = definePluginSettings({
     removeCloseButton: {
@@ -50,6 +51,6 @@ export default definePlugin({
     ],
 
     transform() {
-        return `eagleCord v${VERSION}`;
+        return `eagleCord v${VERSION} ${randomUUID().slice(0, 5)}`;
     },
 });
