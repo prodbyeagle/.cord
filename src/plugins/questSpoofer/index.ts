@@ -18,9 +18,23 @@ const QuestsStore = findByPropsLazy("getQuest");
 const log = new Logger("QuestSpoofer", "#473763");
 
 export default definePlugin({
-    name: "QuestSpoofer",
+    name: "E: QuestSpoofer",
     description: "Spoofs Discord Quests for video, desktop play, and streaming.",
     authors: [Devs.prodbyeagle],
+
+    toolboxActions: {
+        async "Refetch Quests"() {
+            try {
+                await QuestsStore.fetch();
+                showToast("✅ Successfully refetched quests!", Toasts.Type.SUCCESS);
+                log.info("Quests successfully refetched.");
+            } catch (err) {
+                showToast("❌ Failed to refetch quests.", Toasts.Type.FAILURE);
+                log.error("Failed to refetch quests:", err);
+            }
+        }
+    },
+
 
     async start() {
         delete (window as any).$;
