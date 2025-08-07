@@ -44,8 +44,13 @@ export default definePlugin({
         const appName = quest.config.application.name;
         const { questName } = quest.config.messages;
         const taskConfig = quest.config.taskConfig ?? quest.config.taskConfigV2;
-        const task = ["WATCH_VIDEO", "PLAY_ON_DESKTOP", "STREAM_ON_DESKTOP", "PLAY_ACTIVITY", "WATCH_VIDEO_ON_MOBILE"]
-            .find(t => taskConfig.tasks[t]);
+        const task = (["WATCH_VIDEO", "PLAY_ON_DESKTOP", "STREAM_ON_DESKTOP", "PLAY_ACTIVITY", "WATCH_VIDEO_ON_MOBILE"] as const)
+            .find(t => taskConfig?.tasks?.[t]);
+
+        if (!task) {
+            log.warn("No valid quest task found in config.");
+            return showToast("❌ Unsupported or missing task type.", Toasts.Type.FAILURE);
+        }
 
         const secondsNeeded = taskConfig.tasks[task].target;
         let secondsDone = quest.userStatus?.progress?.[task]?.value ?? 0;
@@ -65,7 +70,7 @@ export default definePlugin({
                     const timestamp = secondsDone + speed;
                     if (diff >= speed) {
                         const postTime = Math.min(secondsNeeded, timestamp + Math.random());
-                        const res = await RestRestAPI.post({
+                        const res = await RestAPI.post({
                             url: `/quests/${quest.id}/video-progress`,
                             body: { timestamp: postTime }
                         });
@@ -201,10 +206,12 @@ export default definePlugin({
         }
 
         else if (task === "PLAY_ACTIVITY") {
+            const guilds = GuildChannelStore.getAllGuilds() as Record<string, { VOCAL?: { channel: { id: string; }; }[]; }>;
+
             const vcId =
                 ChannelStore.getSortedPrivateChannels()[0]?.id ??
-                Object.values(GuildChannelStore.getAllGuilds())
-                    .find(g => g?.VOCAL?.length > 0)?.VOCAL?.[0]?.channel?.id;
+                Object.values(guilds)
+                    .find(g => (g.VOCAL ?? []).length > 0)?.VOCAL?.[0]?.channel?.id;
 
             if (!vcId) {
                 log.error("No voice channel found to spoof activity.");
