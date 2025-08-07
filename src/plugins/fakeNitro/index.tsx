@@ -206,7 +206,7 @@ export default definePlugin({
     authors: [Devs.Arjix, Devs.D3SOX, Devs.Ven, Devs.fawn, Devs.captain, Devs.Nuckyz, Devs.AutumnVN],
     description: "Allows you to stream in nitro quality, send fake emojis/stickers, use client themes and custom Discord notifications.",
     dependencies: ["MessageEventsAPI"],
-    required: true,
+
     settings,
 
     patches: [
@@ -243,11 +243,8 @@ export default definePlugin({
                 },
                 {
                     // Disallow the emoji for premium locked if the intention doesn't allow it
-                    // FIXME(Bundler change related): Remove old compatiblity once enough time has passed
-                    match: /(!)?(\i\.\i\.canUseEmojisEverywhere\(\i\))/,
-                    replace: (m, not) => not
-                        ? `(${m}&&!${IS_BYPASSEABLE_INTENTION})`
-                        : `(${m}||${IS_BYPASSEABLE_INTENTION})`
+                    match: /!(\i\.\i\.canUseEmojisEverywhere\(\i\))/,
+                    replace: m => `(${m}&&!${IS_BYPASSEABLE_INTENTION})`
                 },
                 {
                     // Allow animated emojis to be used if the intention allows it
