@@ -103,7 +103,7 @@ function reloadBadges() {
 }
 
 export default definePlugin({
-    name: "FakeBadges",
+    name: "E: FakeBadges",
     description: "Add fake badges that you can wear.",
     authors: [Devs.prodbyeagle],
     settings,

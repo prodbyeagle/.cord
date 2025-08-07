@@ -11,8 +11,8 @@ let originalPlay: typeof Audio.prototype.play | null = null;
 let last: HTMLAudioElement | null = null;
 
 export default definePlugin({
-    name: "FixAudioFiles",
-    description: "Prevents overlapping audio by enforcing one 'sound' at a time.",
+    name: "E: FixAudioFiles",
+    description: "Prevents overlapping audio by enforcing one 'sound' at a time. DO NOT USE THIS, THIS IS BAD CODE.",
     authors: [Devs.prodbyeagle],
 
     start() {

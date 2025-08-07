@@ -65,7 +65,7 @@ export const settings = definePluginSettings({
 let currentBadge: ProfileBadge | null = null;
 
 export default definePlugin({
-    name: "CustomBadge",
+    name: "E: CustomBadge",
     description: "Ever wanted an Own Badge? Now you can have one.",
     authors: [Devs.prodbyeagle],
     settings,
