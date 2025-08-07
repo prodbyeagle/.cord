@@ -6,11 +6,12 @@
 
 import "./styles.css";
 
-import { NotificationData } from "@api/Notifications/Notifications";
 import { useSettings } from "@api/Settings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { classes } from "@utils/misc";
 import { React, useEffect, useMemo, useState, useStateFromStores, WindowStore } from "@webpack/common";
+
+import { NotificationData } from "./Notifications";
 
 export default ErrorBoundary.wrap(function NotificationComponent({
     title,
@@ -91,9 +92,7 @@ export default ErrorBoundary.wrap(function NotificationComponent({
                             </svg>
                         </button>
                     </div>
-                    <div>
-                        {richBody ?? <p className="vc-notification-p">{body}</p>}
-                    </div>
+                    {richBody ?? <p className="vc-notification-p">{body}</p>}
                 </div>
             </div>
             {image && <img className="vc-notification-img" src={image} alt="" />}
